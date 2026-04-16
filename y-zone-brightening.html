@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y бүс цайруулах | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Hero: Pink Rose */
+        .hero-yzone {
+            position: relative;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-yzone::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80');
+            background-size: cover;
+            background-position: center top;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-badges-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .hero-badge {
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            width: 75px; height: 75px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(216,27,96,0.15);
+            border: 2px solid #f8bbd0;
+        }
+        .hero-badge i { font-size: 16px; color: #d81b60; margin-bottom: 4px; }
+        .hero-badge span { font-size: 8px; font-weight: 800; color: #880e4f; text-align: center; line-height: 1.2; padding: 0 4px; }
+
+        /* What is Section: White */
+        .what-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .what-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #212121;
+            margin-bottom: 8px;
+            display: inline-block;
+            border-bottom: 3px solid #d81b60;
+            padding-bottom: 4px;
+        }
+
+        /* Features Section: Light Beige */
+        .cream-section {
+            background: #f3f0f1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .feature-circles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0 10px 0;
+        }
+        .feat-circle {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            width: 85px; height: 85px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            font-size: 9px;
+            font-weight: 800;
+            color: #424242;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        /* Dark Olive Section (When needed) */
+        .olive-section {
+            background: #3d301b;
+            padding: 50px 20px;
+            color: #d7ccc8;
+            text-align: center;
+        }
+        .olive-title {
+            color: #e0d4b8;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .olive-item {
+            border: 1px solid rgba(224,212,184,0.3);
+            border-radius: 30px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #e0d4b8;
+            background: rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        /* Strengths: Soft Pastel Pink */
+        .adv-section {
+            background: #fdf0f5;
+            padding: 40px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #fce4ec;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #d81b60;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(216,27,96,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #f06292;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#d81b60] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Y бүс цайруулах</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Pink Hero -->
+        <section class="hero-yzone">
+            <div class="relative z-10">
+                <h2 class="text-[30px] font-extrabold text-[#880e4f] leading-tight mb-2">Y бүсийн<br>цайруулалт</h2>
+                
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[#d81b60] font-bold block mb-4">Y-zone Brightening</span>
+                
+                <p class="text-[11px] text-[#880e4f] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#f8bbd0] opacity-90">
+                    Дааврын өөрчлөлт, байнгын үрэлт зэрэг шалтгаан болон зэрэгт тохируулан эргэн тойрны арьсны өнгөтэй ижил түвшинд цайруулах үйлчилгээ.
+                </p>
+
+                <div class="hero-badges-wrapper">
+                    <div class="hero-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Нийт хугацаа<br>30 минут</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-syringe"></i>
+                        <span>Унтуулах /<br>Хэсгийн мэдээ алдуулалт</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-walking"></i>
+                        <span>Шууд хэвийн<br>амьдрал</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-redo"></i>
+                        <span>Ойролцоогоор<br>2 удаа</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- White Section (What is) -->
+        <section class="what-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#9e9e9e] font-bold block mb-1">Y-zone Brightening</span>
+            <h3 class="what-title">Y бүсийн цайруулалт гэж юу вэ?</h3>
+            
+            <p class="text-[13px] font-bold text-[#212121] leading-relaxed mt-6 mb-3 px-2">
+                Эмэгтэй хүний Y бүс нь ихэвчлэн бага насанд цайвар өнгөтэй байдаг ч 
+                нас ахих тусам дааврын өөрчлөлт, байнгын үрэлт зэргээс шалтгаалан аажмаар бараантдаг.
+            </p>
+            <p class="text-[12px] font-medium text-[#616161] leading-relaxed px-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                <span class="font-bold text-[#424242]">Эмэгтэй хүний гадна бэлэг эрхтний арьс бусад хэсгээс илүү эмзэг тул амархан нөсөөтдөг бөгөөд</span><br><br>
+                шалтгаан, зэрэглэлийг тодорхойлж эргэн тойрны арьсны өнгөнд тохируулан нарийвчлалтайгаар лазер цайруулах эмчилгээ хийснээр өвдөлт багасч, байгалийн мэт үр дүн гарна.
+            </p>
+        </section>
+
+        <!-- Cream Section (Features) -->
+        <section class="cream-section">
+            <i class="fas fa-leaf text-2xl text-[#880e4f] mb-3 opacity-80 block"></i>
+            <h3 class="text-[20px] font-bold text-[#4a148c] mb-1">Y бүс цайруулах эмчилгээний онцлог</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#9c27b0] font-bold block mb-4 border-b border-[#ce93d8] inline-block pb-1">Brightening Feature</span>
+
+            <div class="feature-circles">
+                <div class="feat-circle">Цөөхөн удаагийн эмчилгээгээр цайрах үр дүн</div>
+                <div class="feat-circle">Толбогүй, жигд өнгөөр<br>цайруулах</div>
+                <div class="feat-circle">Уян хатан болон цайруулах 2 давхар үйлчилгээ</div>
+                <div class="feat-circle">Хувь хүнд тохирсон 1:1 ганцаарчилсан эмчилгээ</div>
+                <div class="feat-circle">Цайруулах лазерын дараа шууд хэвийн амьдралдаа орно</div>
+            </div>
+        </section>
+
+        <!-- Dark Olive Section (When needed) -->
+        <section class="olive-section">
+            <i class="fas fa-crown text-[#e0d4b8] text-2xl mb-3 block opacity-80"></i>
+            <h3 class="olive-title">Y бүс цайруулах эмчилгээ<br>шаардлагатай тохиолдол</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#a1887f] font-bold block mb-8">If you need a Y-zone brightening</span>
+
+            <div class="flex flex-col">
+                <div class="olive-item">Төрөлхийн гадна бэлэг эрхтэн бараан өнгөтэй бол</div>
+                <div class="olive-item">Гадна бэлэг эрхтнийг бүхлээр нь цайвар болгохыг хүссэн хүмүүс</div>
+                <div class="olive-item">Байнгын үрэлтээс болж бараантсан бол</div>
+                <div class="olive-item">Бараан өнгөнөөс болж өөртөө итгэх итгэл буурсан хүмүүс</div>
+                <div class="olive-item">Бэлгийн харьцааны туршлага ихтэй гэсэн буруу ойлголтоос санаа зовж байгаа хүмүүс</div>
+                <div class="olive-item mb-0">Цайруулах тос хэрэглээд үр дүн гаргаагүй хүмүүс</div>
+            </div>
+        </section>
+
+        <!-- Advantages (Strengths) in Pastel Pink -->
+        <section class="adv-section">
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-[#880e4f] leading-tight mb-2">Y бүс цайруулах эмчилгээний<br>онцгой давуу тал!</h3>
+                <p class="text-[11px] text-[#ad1457] font-medium">Туршлагын ялгаа нь үр дүнгийн ялгааг бий болгоно</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

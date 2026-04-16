@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мэнгэ / үү арилгах | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Hero: Lavender Pink with Concentric Circles */
+        .hero-mole {
+            position: relative;
+            background: linear-gradient(180deg, #fadcfc 0%, #faeefc 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-mole::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%; height: 150%;
+            background: radial-gradient(circle, transparent 20%, rgba(255,255,255,0.4) 21%, transparent 22%, rgba(255,255,255,0.3) 30%, transparent 31%, rgba(255,255,255,0.2) 40%, transparent 41%);
+            z-index: 1;
+        }
+        .hero-mole > div { position: relative; z-index: 2; }
+
+        /* White Section (What is) */
+        .what-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .what-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #212121;
+            margin-bottom: 8px;
+        }
+        .title-divider {
+            width: 40px; height: 3px; background: #9b59b6; margin: 0 auto 15px auto;
+        }
+
+        /* Advantages Section (Dark Plum) */
+        .plum-section {
+            background: linear-gradient(135deg, #351b31 0%, #20101e 100%);
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+        }
+        .pill-list {
+            display: flex; flex-direction: column; gap: 10px; margin-top: 25px;
+        }
+        .pill-item {
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 30px;
+            padding: 12px 15px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: #fce4fc;
+            background: rgba(255,255,255,0.02);
+            transition: all 0.3s ease;
+        }
+        .pill-item:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+        /* Treatment Process (Light Pink) */
+        .process-section {
+            background: #fdf0fd;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .process-title {
+            font-size: 20px; font-weight: 800; color: #8e44ad;
+        }
+        .process-line {
+            width: 100px; height: 2px; background: #e8daef; margin: 5px auto 30px auto;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            position: relative;
+        }
+        .process-step {
+            background: white;
+            border: 2px solid #f9e1f9;
+            border-radius: 50%;
+            width: 100px; height: 100px;
+            margin: 0 auto;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(142,68,173,0.05);
+            padding: 10px;
+        }
+        .step-num { font-size: 16px; font-weight: 800; color: #9b59b6; margin-bottom: 5px; }
+        .step-text { font-size: 9px; font-weight: 600; color: #512e5f; text-align: center; line-height: 1.2; }
+
+        /* Removable Symptoms (Checkered Purple) */
+        .symptoms-section {
+            background-color: #f7eefa;
+            background-image: linear-gradient(rgba(142,68,173,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(142,68,173,0.05) 1px, transparent 1px);
+            background-size: 15px 15px;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .symptoms-badge {
+            display: inline-block;
+            background: white;
+            color: #8e44ad;
+            font-weight: 800; font-size: 16px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(142,68,173,0.1);
+            margin-bottom: 30px;
+        }
+        .sym-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+        }
+        .sym-box {
+            width: 65px; height: 65px;
+            background: #e8daef;
+            border-radius: 8px;
+            border: 1px solid #d2b4de;
+            display: flex; align-items: center; justify-content: center;
+            color: #8e44ad; font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Strengths Section */
+        .adv-section {
+            background: white;
+            padding: 40px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9e1f9;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #8e44ad;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(142,68,173,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #d2b4de;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#9b59b6] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Мэнгэ / үү арилгах</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Lavender Pink Hero -->
+        <section class="hero-mole">
+            <div>
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#9b59b6] uppercase">Хамгийн сүүлийн үеийн лазер</span>
+                
+                <h2 class="text-[32px] font-extrabold text-[#701569] leading-tight mb-2">Мэнгэ /<br>үү арилгах</h2>
+                
+                <div class="inline-block mt-2 mb-4 px-5 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#701569] bg-white/70 shadow-sm">
+                    SPOT / WART REMOVAL
+                </div>
+                
+                <p class="text-[11px] text-[#701569] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#dfaee2] opacity-90">
+                    Хувь хүний арьсны онцлогт тохируулан сорви үлдээхгүйгээр мэнгэ, үү зэргийг хурдан бөгөөд толигор болгож арилгана.
+                </p>
+            </div>
+        </section>
+
+        <!-- White Section (What is) -->
+        <section class="what-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#9ea0a5] font-bold block mb-1">SPOT / WART</span>
+            <h3 class="what-title">Мэнгэ / үү арилгах үйлчилгээ</h3>
+            <div class="title-divider"></div>
+            
+            <p class="text-[13px] font-bold text-[#212121] leading-relaxed mt-4 mb-3 px-2">
+                Мэнгэ, үү нь хэнд ч илэрч болох шинж тэмдэг юм.
+            </p>
+            <p class="text-[11.5px] font-medium text-[#616161] leading-relaxed px-2">
+                Ихэвчлэн нөсөөжилт болон вирусний халдварын улмаас үүсдэг бөгөөд бусад арьсны өвчнийг ч дагуулдаг тул лазер эмчилгээ шаардлагатай байдаг.
+            </p>
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mt-4 text-[11px] text-[#424242] leading-relaxed">
+                <span class="font-bold text-[#8e44ad]">CO2 буюу нүүрсхүчлийн хийн лазер</span> ашиглан мэнгэ, үүг бүрэн арилгах бөгөөд ихэнх тохиолдолд өвдөлт, цус гаралтгүй, сорвигүй эмчлэх боломжтой.
+            </div>
+        </section>
+
+        <!-- Plum Section (Advantages) -->
+        <section class="plum-section">
+            <h3 class="text-[20px] font-bold text-white mb-2">Мэнгэ / үү арилгах<br>эмчилгээний давуу тал</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#dfaee2] font-bold block mb-8 opacity-70">FEATURE OF REMOVING SPOT/WARTS</span>
+
+            <div class="pill-list">
+                <div class="pill-item">Сорви үүсэх магадлал (өвдөлт) хамгийн бага</div>
+                <div class="pill-item">Хувь хүний арьсны онцлогт тохирсон эмчилгээ</div>
+                <div class="pill-item">Хурдан хугацаанд зүсэж устгах</div>
+                <div class="pill-item">Зөвхөн хэрэгтэй хэсгийг устгаж эрүүл эсийг хамгаалах</div>
+                <div class="pill-item">Гүн үндэстэй, дахиж ургадаг мэнгэ, үүг арилгах</div>
+                <div class="pill-item">Лазер ашиглан арьсны коллаген төлжилтийг дэмжих</div>
+            </div>
+        </section>
+
+        <!-- Light Pink Section (Process) -->
+        <section class="process-section">
+            <i class="fas fa-magic text-[#d2b4de] text-2xl mb-2"></i>
+            <h3 class="process-title">Эмчилгээний үйл явц</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#a569bd] font-bold block mb-1">TREATMENT PROCESS</span>
+            <div class="process-line"></div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <div class="step-text">1:1 ганцаарчилсан<br>зөвлөгөө, оношилгоо</div>
+                </div>
+                <div class="process-step mt-6">
+                    <div class="step-num">02</div>
+                    <div class="step-text">Цэвэрлэгээ болон<br>мэдээ алдуулах тос</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <div class="step-text">Хувь хүнд тохирсон<br>лазер эмчилгээ</div>
+                </div>
+                <div class="process-step mt-6">
+                    <div class="step-num">04</div>
+                    <div class="step-text">Арьс тайвшруулах,<br>сорвины тос, наалт</div>
+                </div>
+                <div class="process-step col-span-2 mx-auto mt-2">
+                    <div class="step-num">05</div>
+                    <div class="step-text">Эмчилгээний дараах<br>үзлэг, арчилгаа</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkered Purple Section (Removable Symptoms) -->
+        <section class="symptoms-section">
+            <div class="symptoms-badge">Арилгах боломжтой шинж тэмдэг</div>
+            <span class="text-[10px] tracking-[0.1em] uppercase text-[#9b59b6] font-bold block mb-6">REMOVABLE SYMPTOMS</span>
+
+            <div class="sym-grid">
+                <!-- Placeholders representing different skin issues -->
+                <div class="sym-box"><i class="fas fa-search-plus"></i></div>
+                <div class="sym-box"><i class="fas fa-search-plus"></i></div>
+                <div class="sym-box"><i class="fas fa-search-plus"></i></div>
+                <div class="sym-box"><i class="fas fa-search-plus"></i></div>
+                <div class="sym-box"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </section>
+
+        <!-- Advantages (Strengths) -->
+        <section class="adv-section">
+            <div class="text-center mb-8">
+                <h3 class="text-[18px] font-bold text-[#5c4a3d] leading-tight mb-2">LYDIA эмнэлгийн мэнгэ/үү<br>арилгах үйлчилгээний онцгой давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

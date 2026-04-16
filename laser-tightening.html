@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лазер үтрээ чангалах эмчилгээ | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Hero Banner Styles */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(180deg, #fdf0f2 0%, #f9dfe4 100%);
+            overflow: hidden;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+        
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            color: #c45070;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(100,23,53,0.1);
+        }
+        .badge-text {
+            font-size: 10px;
+            font-weight: 700;
+            color: #641735;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        /* Dark Quote Section */
+        .quote-section {
+            position: relative;
+            background: #2b2727;
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+        .quote-content {
+            position: relative;
+            z-index: 10;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .quote-icon {
+            font-size: 30px;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Machine Features */
+        .feature-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .feature-pill {
+            background: white;
+            border: 1px solid #f9dfe4;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #641735;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        
+        /* Needs Target Section */
+        .needs-section {
+            background: #3d0e1f;
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .needs-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px; right: -50px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,80,112,0.2) 0%, transparent 70%);
+        }
+        .needs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        .needs-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+        }
+
+        /* Strengths Grid */
+        .strength-card {
+            background: white;
+            border: 1px solid #fdf0f2;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #ff5e8e;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255,94,142,0.4);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c45070;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#641735] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Мэс засалгүй лазер эмчилгээ</h1>
+            <div class="w-10"></div> <!-- Placeholder for centering -->
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="relative z-10">
+                <span class="text-xs font-bold uppercase tracking-wider block mb-2" style="color:#641735;">Хурдан бөгөөд хялбар! Салст бүрхэвчийг нөхөн сэргээх</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 leading-tight mb-1" style="color:#3d0e1f;">Лазер үтрээ<br>чангалах эмчилгээ</h2>
+                <div class="inline-block mt-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-white" style="background:#641735;">LASER VAGINAL TIGHTENING</div>
+                
+                <div class="badge-grid mt-8">
+                    <div class="badge-item">
+                        <div class="badge-icon"><i class="fas fa-stopwatch"></i></div>
+                        <div class="badge-text">10 орчим<br>минутын<br>эмчилгээ</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-icon"><i class="fas fa-ban"></i></div>
+                        <div class="badge-text">Мэдээ<br>алдуулалт<br>шаардлагагүй</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="badge-text">Өвдөлт,<br>цус алдалт<br>бага</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-icon"><i class="fas fa-walking"></i></div>
+                        <div class="badge-text">Шууд хэвийн<br>амьдралдаа<br>орох</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro -->
+        <section class="py-12 px-6 text-center bg-white">
+            <h3 class="text-2xl font-bold mb-4" style="color:#3d0e1f;">Лазер үтрээ чангалах эмчилгээ</h3>
+            <div class="w-8 h-1 mx-auto rounded-full mb-6" style="background:#c45070;"></div>
+            <p class="text-sm text-gray-600 leading-relaxed max-w-[300px] mx-auto font-medium">
+                Төрөлт, хөгшрөлт, бэлгийн харьцаа болон буруу хэвшил зэрэг олон хүчин зүйлээс шалтгаалан <span style="color:#641735; font-weight:700;">үтрээний уян хатан байдал</span> алдагдах магадлалтай.
+            </p>
+        </section>
+
+        <!-- Quote Area -->
+        <section class="quote-section">
+            <div class="quote-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="text-base leading-relaxed font-medium text-gray-100">
+                    Лазер энерги ашиглан үтрээний доторх салст бүрхэвчийн нөхөн төлжилтийг дэмжиж, <span class="text-white font-bold border-b border-pink-300 pb-0.5">алдагдсан уян хатан байдлыг сайжруулан агшаах</span> үйлчилгээ үзүүлэхээс гадна хуурайшилт болон шээс задгайрах шинж тэмдгийг хөнгөвчилдөг.
+                </p>
+                <i class="fas fa-quote-right quote-icon mt-4"></i>
+                <div class="mt-4 text-xs font-bold tracking-widest text-pink-200">LYDIA CLINIC</div>
+            </div>
+        </section>
+
+        <!-- Machine 1 (Erbium) -->
+        <section class="py-12 px-6 bg-[#fdf0f2] text-center overflow-hidden">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-[#c45070] mb-1 block">Үтрээ чангалах хүчтэй үйлчилгээ</span>
+                <h3 class="text-2xl font-bold text-[#3d0e1f] mb-3">Erbium YAG лазер</h3>
+                <div class="inline-block px-4 py-1.5 bg-white rounded-full text-xs font-bold text-[#641735] shadow-sm">
+                    어븀야그
+                </div>
+            </div>
+            
+            <div class="relative w-full max-w-[220px] mx-auto mb-8">
+                <img src="assets/erbium_machine.png" alt="Erbium Label" class="w-full h-auto object-contain drop-shadow-xl" style="max-height: 350px;">
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-pill">Мэс засалгүй лазер эмчилгээ</div>
+                <div class="feature-pill">Өргөн бөгөөд нарийн лазер туяа</div>
+                <div class="feature-pill">Коллаген үүсгэх болон агшаах үйлчилгээ</div>
+                <div class="feature-pill">Өвдөлт, гаж нөлөөний эрсдэл хамгийн бага</div>
+                <div class="feature-pill">Тав тухтай, аюулгүй эмчилгээ</div>
+            </div>
+        </section>
+
+        <!-- Machine 2 (Amos) -->
+        <section class="py-12 px-6 bg-white text-center">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-[#c45070] mb-1 block">Нарийвчилсан өндөр давтамжийн төхөөрөмж</span>
+                <h3 class="text-2xl font-bold text-[#3d0e1f] mb-3">Amos төхөөрөмж</h3>
+                <div class="inline-block px-4 py-1.5 bg-[#f9dfe4] rounded-full text-xs font-bold text-[#641735] shadow-sm">
+                    아모스
+                </div>
+            </div>
+
+            <div class="relative w-full max-w-[220px] mx-auto mb-8">
+                <img src="assets/amos_machine.png" alt="Amos" class="w-full h-auto object-contain drop-shadow-2xl" style="max-height: 350px;">
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-pill bg-gray-50 border-gray-200">Үтрээний дотор ханыг чангалах үйлчилгээ</div>
+                <div class="feature-pill bg-gray-50 border-gray-200">Шээс задгайралт сайжруулах</div>
+                <div class="feature-pill bg-gray-50 border-gray-200">Үтрээний хуурайшилт багасгах</div>
+                <div class="feature-pill bg-gray-50 border-gray-200">Мэс засалгүйгээр шээс задгайралт эмчлэх</div>
+                <div class="feature-pill bg-gray-50 border-gray-200">Богино хугацааны нөхөн сэргээлт</div>
+            </div>
+        </section>
+
+        <!-- Target Needs -->
+        <section class="needs-section">
+            <div class="text-center relative z-10">
+                <i class="fas fa-stethoscope text-2xl text-pink-300 mb-3 block"></i>
+                <h3 class="text-xl font-bold text-white mb-2">Лазер үтрээ чангалах эмчилгээ<br><span class="text-pink-300">шаардлагатай тохиолдол</span></h3>
+            </div>
+            
+            <div class="needs-list">
+                <div class="needs-item">Төрөлтийн дараа үтрээ суларсан болон унжилт үүссэн хүмүүс</div>
+                <div class="needs-item">Хөгшрөлтийн улмаас үтрээ суларч буй хүмүүс</div>
+                <div class="needs-item">Өвдөлт сорви үлдэхээс эмээж мэс засал хийлгэхээс татгалздаг хүмүүс</div>
+                <div class="needs-item">Хурдан тэнхэрч, бэлгийн харьцаагаа сайжруулахыг хүссэн хүмүүс</div>
+                <div class="needs-item">Хамтрагчтайгаа бэлгийн харьцааны сэтгэл ханамж буурахаас санаа зовж буй хүмүүс</div>
+            </div>
+        </section>
+
+        <!-- 6 Strengths / Difference -->
+        <section class="py-12 px-5 bg-white border-b border-gray-100">
+            <div class="text-center mb-10">
+                <i class="fas fa-star text-[#c45070] mb-2 block text-xl"></i>
+                <h3 class="text-2xl font-bold text-gray-900 leading-tight">LYDIA үтрээ чангалах эмчилгээний <span style="color:#641735;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэнэ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-sparkles strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Ариутгагдсан<br>цэвэр орчин</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

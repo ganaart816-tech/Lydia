@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRP / Үүдэл эс | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Purple/Lavender Gradient Matching Image */
+        .hero-prp {
+            position: relative;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #d8b4fe 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-prp::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: color-burn;
+        }
+
+        /* Intro Section (White) */
+        .intro-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .def-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .def-title span {
+            font-size: 24px;
+            color: #6b21a8;
+        }
+        .def-divider {
+            width: 30px; height: 2px; background: #9333ea; margin-top: 8px;
+        }
+
+        /* Process Section: Light Purple */
+        .process-section {
+            background: #fdf4ff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .process-flow {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .p-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        .p-circle {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #d8b4fe;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: #6b21a8;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 10px rgba(107,33,168,0.1);
+        }
+        .p-text {
+            font-size: 10.5px;
+            color: #4c1d95;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+        .p-arrow {
+            display: flex; align-items: center; justify-content: center;
+            color: #d8b4fe; font-size: 14px;
+            margin-top: 15px; /* align with circle */
+        }
+
+        /* Advantages Section (Dark Olive/Gold Matching Image) */
+        .adv-dark-section {
+            background: linear-gradient(160deg, #3f3f2f 0%, #2a2515 100%);
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .adv-dark-section::before {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: radial-gradient(circle at 80% 20%, rgba(212,175,55,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(212,175,55,0.1) 0%, transparent 40%);
+        }
+        .adv-group {
+            position: relative; z-index: 10; margin-bottom: 40px;
+        }
+        .adv-group:last-child { margin-bottom: 0; }
+        
+        .adv-img-title {
+            text-align: center; margin-bottom: 25px;
+        }
+        .adv-img-title h3 {
+            font-size: 18px; font-weight: 800; color: #d4af37; letter-spacing: 1px; display: inline-block; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 5px;
+        }
+        
+        .adv-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(212,175,55,0.2);
+            background: rgba(0,0,0,0.25);
+            border-radius: 30px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+        }
+        .adv-label {
+            background: transparent;
+            color: #d4af37;
+            font-size: 11.5px;
+            font-weight: 700;
+            width: 90px;
+            flex-shrink: 0;
+            border-right: 1px solid rgba(212,175,55,0.3);
+            text-align: center;
+            padding-right: 10px;
+        }
+        .adv-desc {
+            font-size: 11px;
+            color: #e5e7eb;
+            line-height: 1.4;
+        }
+
+        /* Combination Therapy Section (White) */
+        .combo-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        /* Clinic Advantages (Light Purple/White) */
+        .clinic-adv-section {
+            background: #fdf4ff;
+            padding: 50px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #fae8ff;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #9333ea;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(147,51,234,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c084fc;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#9333ea] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">PRP / Үүдэл эс</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-prp">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-1 text-[#6b21a8] uppercase">Цаг хугацааг буцаах нууц</span>
+                
+                <h2 class="text-[32px] font-extrabold text-[#4c1d95] leading-tight mb-2">PRP / <span class="text-[24px]">Үүдэл эс</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#6b21a8] bg-white/70 shadow-sm border border-[#d8b4fe]/50">
+                    ANTI-AGING THERAPY
+                </div>
+                
+                <p class="text-[12px] text-[#4c1d95] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#c084fc]/30 opacity-90">
+                    Өөрийн биеийн эсийг ашиглан байгалийн жамаар арьсыг нөхөн төлжүүлж, хөгшрөлтийг зогсоох төгс эмчилгээ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <div class="mb-10">
+                <h3 class="def-title"><span>PRP</span> гэж юу вэ?<div class="def-divider"></div></h3>
+                <p class="text-[12px] font-medium text-gray-600 leading-relaxed mt-4 max-w-[320px] mx-auto">
+                    Уг эмчилгээ нь таны өөрийн цуснаас ялгаж авсан ялтаст эсээр баялаг сийвэнг (Platelet-Rich Plasma) арьсанд тарих арга юм. Энэхүү сийвэнд эдийн нөхөн төлжилтийг идэвхжүүлэгч олон төрлийн өсөлтийн фактор ихээр агуулагддаг тул гэмтсэн эсийг сэргээж, уян хатан, залуу арьсыг бий болгоно.
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="def-title"><span>Үүдэл эс</span> гэж юу вэ?<div class="def-divider"></div></h3>
+                <p class="text-[12px] font-medium text-gray-600 leading-relaxed mt-4 max-w-[320px] mx-auto">
+                    Үүдэл эс (Stem Cell) нь биеийн аль ч төрлийн эс болон хувирч, хуваагдах, нөхөн төлжих чадвартай онцгой эс юм. Арьсанд тарьснаар шинэ эсүүдийг үүсгэж, коллагены ялгарлыг эрс нэмэгдүүлэн, хөгшрөлтийн эсрэг болон шарх сорвийг эдгээх онцгой хүчтэй үйлчилгээ үзүүлдэг.
+                </p>
+            </div>
+        </section>
+
+        <!-- PRP Process Section -->
+        <section class="process-section">
+            <i class="fas fa-microscope text-[24px] text-[#d8b4fe] mb-2 block"></i>
+            <h3 class="text-[20px] font-bold text-[#4c1d95] tracking-tight">PRP эмчилгээний үе шат</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#a855f7] font-bold block mt-1 mb-2">Process</span>
+            
+            <div class="process-flow">
+                <div class="p-step">
+                    <div class="p-circle">01</div>
+                    <div class="p-text">Цус авах</div>
+                </div>
+                <div class="p-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="p-step">
+                    <div class="p-circle">02</div>
+                    <div class="p-text">Центрифуг<br>(ялгах)</div>
+                </div>
+                <div class="p-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="p-step">
+                    <div class="p-circle">03</div>
+                    <div class="p-text">Сийвэн<br>баяжуулах</div>
+                </div>
+                <div class="p-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="p-step">
+                    <div class="p-circle">04</div>
+                    <div class="p-text">Арьсанд<br>тарих</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages (Dark Olive) -->
+        <section class="adv-dark-section">
+            
+            <!-- PRP Adv -->
+            <div class="adv-group">
+                <div class="adv-img-title">
+                    <h3>PRP-ийн давуу тал</h3>
+                </div>
+                
+                <div class="adv-item">
+                    <div class="adv-label">Аюулгүй байдал</div>
+                    <div class="adv-desc">Өөрийн цусыг ашигладаг тул харшил болон гаж нөлөө үзүүлэх эрсдэл маш бага.</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-label">Байгалийн мэт</div>
+                    <div class="adv-desc">Хиймэл бодис биш тул үр дүн нь маш байгалийн бөгөөд зөөлөн харагдана.</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-label">Амархан эдгэрэх</div>
+                    <div class="adv-desc">Эмчилгээний дараа өвдөлт болон хаван бага тул өдөр тутмын амьдралдаа хурдан орно.</div>
+                </div>
+            </div>
+
+            <!-- Stem Cell Adv -->
+            <div class="adv-group">
+                <div class="adv-img-title">
+                    <h3>Үүдэл эсний давуу тал</h3>
+                </div>
+                
+                <div class="adv-item">
+                    <div class="adv-label">Эс нөхөн төлжүүлэх</div>
+                    <div class="adv-desc">Гэмтсэн эсийг шинэчилж, арьсны бүтцийг гүнээс нь сайжруулна.</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-label">Коллаген ургалт</div>
+                    <div class="adv-desc">Коллаген болон эластины ялгарлыг эрс нэмэгдүүлж уян хатан болгоно.</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-label">Хөгшрөлтийн эсрэг</div>
+                    <div class="adv-desc">Нарийн болон гүн үрчлээг арилгаж, маш хүчтэй хөгшрөлтийн эсрэг үйлчилнэ.</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-label">Сорви бүдгэрүүлэх</div>
+                    <div class="adv-desc">Батганы сорви, нүхжилт, арьсны өө сэвийг эмчилж толигор болгоно.</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Combination Therapy -->
+        <section class="combo-section">
+            <h3 class="text-[20px] font-bold text-[#4c1d95] mb-2 tracking-tight">Үүдэл эсийн хавсарсан эмчилгээ</h3>
+            <span class="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-bold block mb-8">Combination Therapy</span>
+            
+            <div class="flex justify-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1532187643603-c11c5ec7076a?auto=format&fit=crop&q=80&w=150" alt="DNA" class="w-full h-full object-cover">
+                </div>
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1542282811-943ef1a977c3?auto=format&fit=crop&q=80&w=150" alt="Lab" class="w-full h-full object-cover">
+                </div>
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=150" alt="Cell" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 border border-gray-100 rounded-2xl p-5 text-[12px] font-medium text-gray-700 leading-relaxed max-w-[320px] mx-auto">
+                <p>
+                    Үүдэл эс болон PRP-г лазер эмчилгээ, арьс цэвэрлэх тарилгуудтай хавсарч хийснээр тэдгээрийн үр дүнг хэд дахин нэмэгдүүлдэг синергетик нөлөөтэй. Мөн эмчилгээний дараах эдгэрэлтийн хугацааг эрс хурдасгадаг.
+                </p>
+            </div>
+        </section>
+
+        <!-- Advantages (Clinic Standard Purple) -->
+        <section class="clinic-adv-section">
+            <div class="text-center mb-10">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[#6b21a8] font-bold block mb-1">Lydia Clinic</span>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">PRP / Үүдэл эсний<br>онцгой давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-10 mt-6">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Мэргэжлийн<br>эмчийн үзлэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Аюулгүй байдал &<br>баталгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Нарийвчилсан<br>хяналт арчилгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>үр дүн</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

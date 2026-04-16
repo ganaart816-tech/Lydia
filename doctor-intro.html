@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эмчийн танилцуулга | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Doctor Hero Section */
+        .doc-hero {
+            position: relative;
+            background: linear-gradient(to bottom, #fdf0f2 0%, #ffffff 100%);
+            padding: 40px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .doc-image-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px auto;
+        }
+        .doc-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f9dfe4 0%, #ebb8c5 100%);
+            z-index: 1;
+        }
+        .doc-image {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(100,23,53,0.15);
+        }
+
+        .doc-quote-box {
+            background: white;
+            border: 1px solid #f9dfe4;
+            padding: 24px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .quote-icon {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #641735;
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px;
+            box-shadow: 0 4px 10px rgba(100,23,53,0.2);
+        }
+
+        /* Brief History Section */
+        .history-section {
+            background: white;
+            padding: 40px 20px;
+        }
+        
+        .history-list {
+            margin-top: 20px;
+        }
+        .hist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+        .hist-icon {
+            color: #c45070;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+        .hist-text {
+            font-size: 12.5px;
+            color: #4b5563;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .hist-text strong {
+            color: #3d0e1f;
+            font-weight: 700;
+        }
+
+        /* Photo Gallery Area */
+        .gallery-section {
+            background: #faf5f7;
+            padding: 40px 20px;
+            border-top: 1px solid #fce7f3;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(100,23,53,0.1);
+            aspect-ratio: 1;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .gallery-item-wide {
+            grid-column: span 2;
+            aspect-ratio: 2 / 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#641735] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-[#3d0e1f]">Эмчийн танилцуулга</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Doctor Hero -->
+        <section class="doc-hero">
+            <div class="doc-image-wrapper">
+                <img src="./assets/의사 사진 PNG.png" alt="Director Hong Seung-ho" class="doc-image">
+            </div>
+
+            <div class="mb-6">
+                <span class="inline-block py-1 px-3 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2" style="background:#f9dfe4;color:#641735;">LYDIA CLINIC</span>
+                <h2 class="text-2xl font-extrabold text-[#3d0e1f]">Хон Сын Хо <span class="text-[#c45070] text-xl">Ерөнхий эмч</span></h2>
+            </div>
+            
+            <div class="doc-quote-box">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="text-[12.5px] text-[#641735] font-semibold leading-relaxed">
+                    "M-Sling имплант үтрээний мэс заслын ур чадвараа гадаадын олон эмч нарт хуваалцаж, гүнзгийрүүлэн судлан хөгжүүлж байна."
+                </p>
+            </div>
+        </section>
+
+        <!-- Brief History -->
+        <section class="history-section mb-10">
+            <div class="mb-4">
+                <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#c45070;">Brief History</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Товч намтар, туршлага</h3>
+            </div>
+
+            <div class="history-list">
+                <div class="hist-item">
+                    <i class="fas fa-check-circle hist-icon"></i>
+                    <div class="hist-text"><strong>Эх барих, эмэгтэйчүүдийн нарийн мэргэжлийн эмч</strong></div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-check-circle hist-icon"></i>
+                    <div class="hist-text">Одоогийн <strong>LYDIA эмэгтэйчүүдийн эмнэлгийн ерөнхий захирал</strong></div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-check-circle hist-icon"></i>
+                    <div class="hist-text"><strong>Дун Гүг их сургуулийн эмнэлгийн</strong> эх барих, эмэгтэйчүүдийн тасгийн гадаад зөвлөх профессор</div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-check-circle hist-icon"></i>
+                    <div class="hist-text"><strong>Ча (CHA) их сургуулийн</strong> гадаад зөвлөх профессор</div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-check-circle hist-icon"></i>
+                    <div class="hist-text">БНХАУ-ын Шанхай Ханганг эмнэлгийн Солонгос хамтын ажиллагааны эмч</div>
+                </div>
+                
+                <div class="h-px bg-gray-100 my-5 w-full"></div>
+                
+                <div class="hist-item">
+                    <i class="fas fa-star hist-icon text-[#d4af37]"></i>
+                    <div class="hist-text">Солонгосын Эх барих, эмэгтэйчүүдийн нийгэмлэгийн гишүүн</div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-star hist-icon text-[#d4af37]"></i>
+                    <div class="hist-text">Америкийн Эх барих, эмэгтэйчүүдийн дурангийн нийгэмлэгийн гишүүн</div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-star hist-icon text-[#d4af37]"></i>
+                    <div class="hist-text">Солонгосын Эмэгтэйчүүдийн хуванцар мэс заслын нийгэмлэгийн гишүүн</div>
+                </div>
+                <div class="hist-item">
+                    <i class="fas fa-star hist-icon text-[#d4af37]"></i>
+                    <div class="hist-text">Олон улсын Үтрээний гоо заслын нийгэмлэгийн (ISGCAM) гишүүн</div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

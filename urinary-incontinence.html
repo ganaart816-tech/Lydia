@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шээс задгайралын мэс засал | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Hero: Deep Purple/Silk Blend */
+        .hero-purple {
+            position: relative;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-purple::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        /* Intro: White Background Grid */
+        .intro-section {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Categories: Soft Pink/Peach (from treatment-section) */
+        .categories-section {
+            background: linear-gradient(to bottom, #fdf4f6, #fdecdd);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #fce7f3;
+        }
+
+        .type-card {
+            background: white;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin-bottom: 12px;
+        }
+        .type-icon {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e9d5ff, #f3e8ff);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            color: #7e22ce;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(126,34,206,0.15);
+        }
+
+        /* When Section: Salmon/Peach Area */
+        .when-section {
+            background: #fcd5ce;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .when-col {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(224,142,121,0.2);
+            margin-bottom: 15px;
+        }
+        .when-title {
+            background: #fae2e8;
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #9f1239;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        /* Self-Diagnosis: Dark Maroon/Plum */
+        .diagnosis-section {
+            background: linear-gradient(160deg, #3b073b 0%, #1f041f 100%);
+            padding: 50px 20px;
+            color: #fae8ff;
+        }
+        .diag-check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: #f5d0fe;
+        }
+        .diag-check-num {
+            width: 22px; height: 22px;
+            border-radius: 4px;
+            border: 1px solid #d946ef;
+            display: flex; align-items: center; justify-content: center;
+            color: #d946ef;
+            font-size: 10px;
+            font-weight: 800;
+            flex-shrink: 0;
+            background: rgba(217,70,239,0.1);
+        }
+
+        /* Advantages: Soft Pink */
+        .adv-section {
+            background: #fae2e8;
+            padding: 40px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #86198f;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(134,25,143,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c45070;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#9333ea] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Шээс задгайрал</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Purple Hero -->
+        <section class="hero-purple">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#7e22ce] uppercase">Шалтгаан ба шинж тэмдэгт тохирсон эмчилгээ</span>
+                
+                <h2 class="text-[30px] font-extrabold text-[#4c1d95] leading-tight mb-2">Шээс задгайрал</h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#9333ea] bg-white shadow-sm border border-[#d8b4fe]">
+                    MINI-SLING
+                </div>
+                
+                <p class="text-[12px] text-[#581c87] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#d8b4fe] opacity-80">
+                    Шээс задгайралын төрөл болон шалтгааныг задлан шинжилж, дасгал хөдөлгөөний арга болон мэс заслын арга гэх мэт олон төрлийн аргаар эмчилдэг.
+                </p>
+            </div>
+        </section>
+
+        <!-- What is Myoma Intro -> What is Incontinence -->
+        <section class="intro-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-gray-400 font-bold block mb-1">Mini-Sling</span>
+            <h3 class="text-[22px] font-bold text-gray-900 mb-6 border-b-2 border-[#9333ea] inline-block pb-1">Шээс задгайралын мэс засал <span class="font-normal">гэж юу вэ?</span></h3>
+            
+            <p class="text-[13px] font-bold text-[#4c1d95] leading-relaxed mb-3">
+                Шээс задгайрал гэдэг нь өөрийн хүсэл зоригоос үл хамааран шээс алддаг үзэгдэл бөгөөд 
+            </p>
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed mb-6">
+                насанд хүрэгчдийн ойролцоогоор 40% нь энэ шинж тэмдгийг мэдэрч байна. Төрсний дараа, цэвэршилтийн дараа аарцгийн булчингийн суларалт болон шээсний сүвний үйл ажиллагааны доройтлоос шалтгаалан үүсдэг.
+                <br><br>
+                Шээс задгайралаас болж аялал, чөлөөт цагийн үйл ажиллагаа болон нийгмийн амьдралдаа хүндрэлтэй болж, хүндрэх тохиолдолд сэтгэл гутрал, өөрийгөө үнэлэх үнэлэмж буурах зэрэг ноцтой үр дагавартай.
+            </p>
+
+            <div class="bg-purple-50 border border-purple-100 rounded-xl p-4 text-center">
+                <p class="text-[12px] font-bold text-[#7e22ce] leading-relaxed">
+                    Үүссэн шалтгаан, төрөл, шинж тэмдгийн зэрэглэлийг тогтоон тохирох эмчилгээний аргаар шээс задгайралыг эмчилдэг.
+                </p>
+            </div>
+        </section>
+
+        <!-- Types of Incontinence (Treatment Classifications matching myoma's treatment-section background) -->
+        <section class="categories-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#be185d] font-bold block mb-1">Types of Mini-Sling</span>
+            <h3 class="text-xl font-bold text-[#831843] mb-8">Шээс задгайралын төрлүүд</h3>
+
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-running"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#581c87] mb-1">Даралтын шээс задгайрал</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Инээх, найтаах, гүйх зэргийн үед өөрийн мэдэлгүй шээс алддаг, хүндэрвэл алхах эсвэл суух үед ч гардаг.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#581c87] mb-1">Яаралтай шээс задгайрал</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Шээхээр санагдахад тэвчиж чадахгүй, ариун цэврийн өрөөнд хүрэхийн өмнө алддаг байдал.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-water"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#581c87] mb-1">Халих хэлбэрийн шээс задгайрал</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Хэт дүүрсэн давсагнаас шээс хальж гарах бөгөөд давсагны гарц нарийсаж агшилт сулрах үед илэрдэг.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-lungs"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#581c87] mb-1">Шээсний сувгийн унжилттай давсагны унжилт</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Давсаг нь доош унжих замаар хүчтэй шээс задгайрал үүсгэдэг.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- When Section: Salmon/Peach Area -->
+        <section class="when-section">
+            <div class="inline-flex flex-col items-center mb-6">
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#9f1239] font-bold block mb-1">When Mini-Sling</span>
+                <h3 class="text-[20px] font-extrabold text-[#7c2d12] leading-tight">Хэзээ шээс задгайрал вэ?</h3>
+            </div>
+
+            <!-- Stress -->
+            <div class="when-col">
+                <div class="when-title">Даралтын шээс задгайрал</div>
+                <ul class="text-[12px] text-gray-700 font-medium space-y-2 text-left pl-2">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Шатаар гарах үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Дээс тоглох үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Найтаах үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Хүнд зүйл өргөх үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Шээсээ барьж чадахгүй болох үед</li>
+                </ul>
+            </div>
+            
+            <!-- Urge -->
+            <div class="when-col">
+                <div class="when-title">Яаралтай шээс задгайрал</div>
+                <ul class="text-[12px] text-gray-700 font-medium space-y-2 text-left pl-2">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Усны дуу сонсох үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Ариун цэврийн өрөөний өмнө зогсох үед</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Архи, хийжүүлсэн ундаа, кофейн хэрэглэх үед</li>
+                </ul>
+            </div>
+            
+            <!-- Frequency -->
+            <div class="when-col mb-0">
+                <div class="when-title">Олон удаагийн шээс задгайрал</div>
+                <ul class="text-[12px] text-gray-700 font-medium space-y-2 text-left pl-2">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Өдөрт 10-аас дээш удаа шээдэг бол</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-pink-400 mt-1 text-[10px]"></i> Шөнө 3-аас дээш удаа босож шээдэг бол</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Self-Diagnosis (Dark Plum) -->
+        <section class="diagnosis-section">
+            <div class="text-center mb-6">
+                <i class="fas fa-clipboard-check text-[32px] text-[#f0abfc] mb-3 opacity-90 block"></i>
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#d946ef] font-bold block mb-1">Self Mini-Sling</span>
+                <h3 class="text-[20px] font-bold text-[#fae8ff] mb-3 leading-snug">Шээс задгайралыг<br>өөрөө оношлох арга</h3>
+                <p class="text-[11px] font-medium text-[#f5d0fe] leading-relaxed opacity-80 px-2 mt-4 inline-block bg-white/10 rounded-lg p-2 border border-white/20">
+                    ※ Дээрхээс <strong>5-6 шинж тэмдэг</strong> илэрч байвал шээс задгайралтай байж болзошгүй тул эмчид хандана уу.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1">
+                <div class="diag-check">
+                    <div class="diag-check-num">1</div>
+                    <div>Ханиалгах эсвэл найтаах үед шээс алддаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">2</div>
+                    <div>Шээхээр санагдахад тэвчихэд хэцүү</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">3</div>
+                    <div>Өдөрт 8-аас дээш удаа шээдэг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">4</div>
+                    <div>Бэл хүнд, нуруу өвддөг, аарцагны өвдөлт мэдрэгддэг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">5</div>
+                    <div>Гүйх зэрэг хөнгөн дасгал хийх үед шээс алддаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">6</div>
+                    <div>Хэвийн байрлалаа өөрчлөх үед ч шээс алддаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">7</div>
+                    <div>Хүнд зүйл өргөх үед шээс алддаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">8</div>
+                    <div>Шээх үед хэвлийд хүч их орно</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">9</div>
+                    <div>Шээхээр явахдаа яарч, байнга түргэддэг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">10</div>
+                    <div>Ариун цэврийн өрөөнд хүрэхээс өмнө шээс гардаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">11</div>
+                    <div>Шээсний дараа ч дутуу гарсан мэт санагддаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">12</div>
+                    <div>Гэр бүлийн харьцаа өмнөх шигээ биш бөгөөд харьцааны үед шээс гардаг</div>
+                </div>
+                <div class="diag-check">
+                    <div class="diag-check-num">13</div>
+                    <div>Унтаж байхдаа шээс алдаж, шөнө байнга сэрдэг</div>
+                </div>
+                <div class="diag-check mb-0">
+                    <div class="diag-check-num">14</div>
+                    <div>Шээс дүүрэх үед хэвлий өвддөг</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages -->
+        <section class="adv-section">
+            <div class="text-center mb-8">
+                <i class="fas fa-star text-[#c45070] mb-2 block text-xl"></i>
+                <h3 class="text-xl font-bold text-[#701a75] leading-tight">Шээс задгайралын мэс заслын<br>давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

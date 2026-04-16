@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лазер үс авах (Депиляци) | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Gold/Beige Glittery Background */
+        .hero-laser {
+            position: relative;
+            background: linear-gradient(135deg, #f3e8dd 0%, #e8d5c4 50%, #e3ccb8 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-laser::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1512496015851-a1dcafcb509d?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: color-burn;
+        }
+
+        /* Intro Section: Clean White */
+        .intro-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid #f3e8dd;
+        }
+
+        /* Areas Section: Dark Gradient Matching Image */
+        .areas-section {
+            background: linear-gradient(180deg, #333333 0%, #1a1a1a 100%);
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+        }
+        .area-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .area-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .area-pic {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            border: 2px solid #e8d5c4;
+            overflow: hidden;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            background: #fff;
+        }
+        .area-title {
+            color: #e8d5c4;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .area-desc {
+            color: #aaaaaa;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+
+        /* Why Needed Section: Beige */
+        .why-section {
+            background: #fdfaf7;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .why-row {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #f3e8dd;
+            border-radius: 30px;
+            padding: 6px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: left;
+        }
+        .why-num {
+            background: linear-gradient(135deg, #e8d5c4, #dec4af);
+            color: #5c4033;
+            width: 50px;
+            padding: 10px 0;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 800;
+            text-align: center;
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+        .why-text {
+            font-size: 11.5px;
+            color: #666;
+            line-height: 1.4;
+            padding-right: 10px;
+        }
+
+        /* Why Lydia: Pink/Purple Gradient Matching Image */
+        .lydia-reason-section {
+            background: linear-gradient(135deg, #d87093 0%, #b03060 100%);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .lydia-reason-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: soft-light;
+        }
+        .hexagon-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        .hex-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            color: #831843;
+            box-shadow: 0 8px 20px rgba(131,24,67,0.3);
+            position: relative;
+        }
+        .hex-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 26px; height: 26px;
+            background: #b03060;
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        /* Checklist Section: Dark Brown/Black */
+        .checklist-section {
+            background: linear-gradient(180deg, #3e2723 0%, #211512 100%);
+            padding: 50px 15px;
+            color: white;
+            text-align: center;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 10px;
+            text-align: left;
+        }
+        .check-item:last-child {
+            border-bottom: none;
+        }
+        .check-icon {
+            color: #d4a373;
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Advantages (Clinic Standard Pink) */
+        .adv-section {
+            background: #ffffff;
+            padding: 50px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #b03060;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(176,48,96,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #d87093;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#5c4033] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Үс авах (Депиляци)</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-laser">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-1 text-[#8c5220] uppercase">Жилийн 4 улиралд тухтай байх</span>
+                
+                <h2 class="text-[28px] font-extrabold text-[#5c4033] leading-tight mb-2">Лазер үс авах<br><span class="text-[18px]">(Депиляци)</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#5c4033] bg-[#e8d5c4]/50 shadow-sm border border-[#5c4033]/20">
+                    LASER HAIR REMOVAL
+                </div>
+                
+                <p class="text-[12px] text-[#5c4033] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#8c5220]/30 opacity-90">
+                    Арьсанд цочрол өгөхгүйгээр хүсээгүй үснээсээ салах орчин үеийн, төгс шийдэл.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#8c5220] font-bold block mb-1">What is Laser Hair Removal?</span>
+            <h3 class="text-[22px] font-bold text-gray-900 mb-6 border-b-2 border-[#dec4af] inline-block pb-1">Лазер үс авах <span class="font-normal text-gray-600">гэж юу вэ?</span></h3>
+            
+            <p class="text-[13px] font-bold text-[#5c4033] leading-relaxed mb-4">
+                Лазер гэрлийн энергиэр үсний уутанцар дахь меланин пигментийг онилон устгадаг.
+            </p>
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed">
+                Энэ нь эргэн тойрны арьсны эд эсийг гэмтээхгүйгээр зөвхөн үсний үндсийг устгаж, ургалтыг зогсоосноор удаан хугацаанд, цэвэрхэн толигор арьстай байх боломжийг олгодог аюулгүй, үр дүнтэй арга юм.
+            </p>
+        </section>
+
+        <!-- Treatment Areas (Dark Section) -->
+        <section class="areas-section">
+            <h3 class="text-[22px] font-bold text-[#e8d5c4] mb-2 tracking-tight">" Лазер үс авах хэсгүүд "</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-gray-400 font-bold block mb-2">Target Areas</span>
+            
+            <div class="area-container">
+                <div class="area-col">
+                    <div class="area-pic"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=200&h=200" alt="Face" class="w-full h-full object-cover"></div>
+                    <div class="area-title">Нүүр</div>
+                    <div class="area-desc">Уруул дээгүүр, эрүү, хацар, духны шугам гэх мэт</div>
+                </div>
+                <div class="area-col">
+                    <div class="area-pic"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=200&h=200" alt="Upper body" class="w-full h-full object-cover"></div>
+                    <div class="area-title">Дээд бие</div>
+                    <div class="area-desc">Суга, гар, хэвлий, цээж, нуруу гэх мэт</div>
+                </div>
+                <div class="area-col">
+                    <div class="area-pic"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=200&h=200" alt="Lower body" class="w-full h-full object-cover"></div>
+                    <div class="area-title">Доод бие</div>
+                    <div class="area-desc">Бикини, Бразилиан, шилбэ, гуя гэх мэт</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Laser Section (Beige) -->
+        <section class="why-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#8c5220] font-bold block mb-1">Why Laser?</span>
+            <h3 class="text-[20px] font-bold text-[#5c4033] mb-8">Бусад аргуудаас татгалзах<br>шалтгаан</h3>
+
+            <div class="why-row">
+                <div class="why-num">01 Вакс</div>
+                <div class="why-text">Өвдөлт ихтэй. Арьсан дор үс ургах, арьсны уян хатан байдал алдагдаж сулрах эрсдэлтэй.</div>
+            </div>
+            
+            <div class="why-row">
+                <div class="why-num">02 Хусах</div>
+                <div class="why-text">Арьс маажигдаж цочроно. Үс хурдан ургаж, ширүүн бүдүүн болж мэдэгдэнэ.</div>
+            </div>
+            
+            <div class="why-row">
+                <div class="why-num">03 Зулгаах</div>
+                <div class="why-text">Нүхжилт томорч үрэвсэл үүсгэдэг. Үсний уутанцар орчимд нөсөө тогтох хандлагатай.</div>
+            </div>
+        </section>
+
+        <!-- Why Lydia Section (Pink/Purple) -->
+        <section class="lydia-reason-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-pink-200 font-bold block mb-2 border border-pink-300/30 inline-block px-4 py-1 rounded-full">At Lydia Clinic</span>
+            <h3 class="text-[22px] font-bold text-white mb-2 leading-snug">LYDIA-г сонгох шалтгаан</h3>
+
+            <div class="hexagon-grid">
+                <div class="hex-card">
+                    <div class="hex-badge"><i class="fas fa-magic"></i></div>
+                    <h4 class="text-[14px] font-bold text-[#b03060] mb-2">Арьсны цочрол бага!<br>Үр дүн илүү баттай!</h4>
+                    <p class="text-[11px] text-gray-600 font-medium leading-relaxed">Дэвшилтэт лазер төхөөрөмж нь үсний уутанцсыг нарийвчлан онилж, давхар ургалтыг зогсооно.</p>
+                </div>
+                
+                <div class="hex-card">
+                    <div class="hex-badge"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="text-[14px] font-bold text-[#b03060] mb-2">Арьсыг гэмтээхгүй<br>аюулгүй үйлчилгээ</h4>
+                    <p class="text-[11px] text-gray-600 font-medium leading-relaxed">Ойр орчмын арьс болон эд эсийг гэмтээхгүйгээр зөвхөн үсний үндсэнд үйлчилнэ.</p>
+                </div>
+                
+                <div class="hex-card">
+                    <div class="hex-badge"><i class="fas fa-snowflake"></i></div>
+                    <h4 class="text-[14px] font-bold text-[#b03060] mb-2">Хөргөх системээр<br>өвдөлтийг бууруулсан</h4>
+                    <p class="text-[11px] text-gray-600 font-medium leading-relaxed">Лазерын туяатай зэрэгцэн хөргөх систем ажиллах тул түлэх эрсдэл болон өвдөлтийг их хэмжээгээр бууруулсан.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist Section (Dark Brown) -->
+        <section class="checklist-section">
+            <h3 class="text-[20px] font-bold text-[#e8d5c4] mb-2 tracking-tight">Лазер үс авалтын<br>чеклист</h3>
+            <span class="text-[9px] tracking-[0.2em] uppercase text-gray-400 font-bold block mb-6">Care Checklist</span>
+            
+            <div class="text-[12px] bg-white/5 rounded-2xl border border-white/10 p-2 text-left w-full mx-auto max-w-[360px]">
+                <div class="check-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div class="text-gray-300 font-medium">Лазер хийлгэхийн өмнө(1-2 хоног) үсээ зөвхөн хутгаар/брезтвээр хуссан байх шаардлагатай. (Вакс, зулгаах хориотой)</div>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div class="text-gray-300 font-medium">Эмчилгээний дараа гадуур гарахдаа нарны тос түрхэж нарнаас хамгаалах нь маш чухал.</div>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div class="text-gray-300 font-medium">Арьс үрэхээс зайлсхийж, эмчилгээний дараа хэд хоног саун, халуун усанд орохоос татгалзах хэрэгтэй.</div>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div class="text-gray-300 font-medium">Эмчилгээг ихэвчлэн 4-6 долоо хоногийн зайтайгаар давтан хийлгэвэл хамгийн үр дүнтэй.</div>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div class="text-gray-300 font-medium">Хуурайшиж, бага зэрэг улайж болох тул чийгшүүлэгч/тайвшруулах тосыг хангалттай түрхэх хэрэгтэй.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages (Clinic Standard) -->
+        <section class="adv-section">
+            <div class="text-center mb-10">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[#b03060] font-bold block mb-1">Lydia Clinic</span>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">Лазер үс авалтын<br>онцгой давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-10 mt-6">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Мэргэжлийн<br>эмчийн үзлэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Аюулгүй байдал &<br>баталгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Нарийвчилсан<br>хяналт арчилгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>үр дүн</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

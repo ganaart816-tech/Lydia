@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайжруулах тарилга | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Hero Banner Styles */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(180deg, #fdf0f2 0%, #f9dfe4 100%);
+            overflow: hidden;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        /* Intro Text Base */
+        .intro-section {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Badges Grid (6 Pills) */
+        .badge-grid-pill {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .pill-item {
+            background: #a93259;
+            color: white;
+            border-radius: 30px;
+            padding: 12px 10px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(100,23,53,0.15);
+        }
+
+        /* Quote Section (Dark) */
+        .quote-section {
+            position: relative;
+            background: #2b2727;
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+        }
+        .quote-content {
+            position: relative;
+            z-index: 10;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .quote-icon {
+            font-size: 30px;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Characteristics List */
+        .char-item {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .char-title {
+            color: #a93259;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .char-desc {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        /* Needs Target Section */
+        .needs-section {
+            background: #3d0e1f;
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .needs-section::after {
+            content: '';
+            position: absolute;
+            top: 50px; left: -50px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(169,50,89,0.3) 0%, transparent 70%);
+        }
+        .needs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        .needs-item {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        /* Strengths Grid */
+        .strength-card {
+            background: white;
+            border: 1px solid #fdf0f2;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #ff5e8e;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255,94,142,0.4);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c45070;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#641735] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Сайжруулах тарилга</h1>
+            <div class="w-10"></div> <!-- Placeholder for centering -->
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-wider block mb-3 text-[#641735]">Нэг удаагийн тарилгаар хагас-байнгын үр дүн</span>
+                <h2 class="text-[28px] font-extrabold text-[#3d0e1f] leading-tight mb-2">Сайжруулах тарилга<br><span class="text-[20px]">(Үтрээний тарилга)</span></h2>
+                <div class="inline-block mt-1 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#a93259] bg-white shadow-sm mb-6">VAGINAL FILLER</div>
+                
+                <p class="text-xs text-[#a93259] font-medium leading-relaxed max-w-[260px] mx-auto border-t border-pink-200 pt-4">
+                    FDA болон KFDA-аас аюулгүй байдлыг нь баталгаажуулсан, хүний биед байдаг коллагеныг үтрээний салст бүрхэвчид тарьж 보дит хэмжээг нэмэгдүүлдэг мэс засалгүй эмчилгээ
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro -->
+        <section class="intro-section pb-4">
+            <div class="text-[10px] font-bold tracking-widest text-[#a93259] mb-2 uppercase">Vaginal Filler</div>
+            <h3 class="text-xl font-bold mb-4 text-[#3d0e1f]">Сайжруулах тарилга<br><span class="text-base text-[#641735]">(Үтрээний тарилга)</span></h3>
+            <div class="w-8 h-1 mx-auto rounded-full mb-6 bg-[#c45070]"></div>
+            
+            <p class="text-sm text-gray-600 leading-relaxed font-medium mb-4">
+                Коллаген тарилга нь зөвхөн арьсны уян хатан байдлыг нэмэгдүүлээд зогсохгүй үтрээний салст бүрхэвчид шууд тарьснаар <span class="text-[#641735] font-bold">хэмжээг нэмэгдүүлж</span>, уян хатан байдлыг сэргээн үтрээний ханыг зузаан байлгаж:
+            </p>
+            <p class="text-sm text-[#3d0e1f] leading-relaxed font-bold border border-pink-100 bg-pink-50 rounded-xl p-4">
+                Үтрээний сулралыг багасгах, үтрээний даралтыг нэмэгдүүлэх, бэлгийн дур хүслийг нэмэгдүүлэх болон сайжруулах гайхалтай үр дүнтэй эмчилгээ юм.
+            </p>
+        </section>
+
+        <!-- Characteristics & Details -->
+        <section class="py-10 px-5 bg-[#fdf0f2]">
+            <div class="text-center mb-6">
+                <i class="fas fa-magic text-[#c45070] text-xl mb-2 block"></i>
+                <h3 class="text-xl font-bold text-[#3d0e1f]">Сайжруулах тарилгын<br><span class="text-[#a93259]">онцлог</span></h3>
+            </div>
+            
+            <!-- Badges Array -->
+            <div class="badge-grid-pill mb-8">
+                <div class="pill-item">Үтрээний даралт<br>нэмэгдэнэ</div>
+                <div class="pill-item">Хагас-байнгын<br>үйлчлэх хугацаа</div>
+                <div class="pill-item">Бэлгийн дур хүсэл<br>нэмэгдэнэ</div>
+                <div class="pill-item">Зүсэлтгүй / Өвдөлтгүй / Цус гарахгүй</div>
+                <div class="pill-item">Хэмжээ<br>нэмэгдэнэ</div>
+                <div class="pill-item">Үтрээ<br>чангарна</div>
+            </div>
+
+            <div class="relative w-full max-w-[280px] mx-auto mb-8 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Elegant Woman" class="w-full h-[300px] object-cover object-top">
+            </div>
+
+            <!-- Detail List -->
+            <div class="flex flex-col">
+                <div class="char-item">
+                    <h4 class="char-title"><i class="fas fa-heart text-pink-400"></i> Хамтрагчтайгаа бэлгийн харьцааны сэтгэл ханамж UP</h4>
+                    <p class="char-desc">Эмчилгээний дараа шууд үр дүн мэдэгдэх бөгөөд хэмжээ болон үйлчлэх хугацаа урт тул хамтрагчтайгаа бэлгийн харьцааны сэтгэл ханамжийг нэмэгдүүлнэ.</p>
+                </div>
+                <div class="char-item">
+                    <h4 class="char-title"><i class="fas fa-shield-check text-pink-400"></i> Аюулгүй байдал нь батлагдсан оригинал филлер</h4>
+                    <p class="char-desc">KFDA болон FDA-аас баталгаажсан оригинал коллаген ашигладаг тул биеийн гаж нөлөө бараг байхгүй.</p>
+                </div>
+                <div class="char-item">
+                    <h4 class="char-title"><i class="fas fa-calendar-check text-pink-400"></i> Ойролцоогоор 1~2 жилийн тасралтгүй үр дүн</h4>
+                    <p class="char-desc">Өөрийн коллагеныг үүсгэснээр биед зүй тогтлоороо шингэж уярдаг тул 1-2 жилээс илүү хугацаанд үр дүнгээ барьдаг.</p>
+                </div>
+                <div class="char-item">
+                    <h4 class="char-title"><i class="fas fa-clock text-pink-400"></i> Хурдан эмчилгээ / Хурдан эдгэрэлт</h4>
+                    <p class="char-desc">20-30 минут орчим богино хугацаанд эмчилгээ дуусах бөгөөд нэмэлт нөхөн сэргээх хугацаар шаардлагагүйгээр шууд хэвийн амьдралд орох боломжтой.</p>
+                </div>
+                <div class="char-item">
+                    <h4 class="char-title"><i class="fas fa-compress-arrows-alt text-pink-400"></i> Физик нөлөөлөлд шахагдахгүй!</h4>
+                    <p class="char-desc">Үтрээнд тарьсан филлер нь хатуурдаггүй бөгөөд бэлгийн харьцааны үед үтрээний ханаар гадагшилдаггүй учир хэвийн амьдралд ямар ч саадгүй.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Needs Section (Dark) -->
+        <section class="needs-section">
+            <div class="text-center relative z-10">
+                <i class="fas fa-heartbeat text-2xl text-pink-300 mb-3 block opacity-80"></i>
+                <h3 class="text-[19px] font-bold text-white mb-2 leading-snug">Сайжруулах тарилга<br><span class="text-pink-300 font-bold">(Үтрээний тарилга)</span><br>шаардлагатай тохиолдол</h3>
+            </div>
+            
+            <div class="needs-list">
+                <div class="needs-item">Илүү сэтгэл ханамжтай бэлгийн харьцааг хүсэж буй хүмүүс</div>
+                <div class="needs-item">Төрөлтөөс үүдэж үтрээ суларч бэлгийн дур хүсэл буурсан хүмүүс</div>
+                <div class="needs-item">Мэс заслаас айдаг эсвэл татгалздаг хүмүүс</div>
+                <div class="needs-item">Ажил болон хүүхэд асрахаас болоод цаг зав муутай хүмүүс</div>
+                <div class="needs-item">Шээс задгайралтаас болж шаналж буй хүмүүс</div>
+            </div>
+        </section>
+
+        <!-- 6 Strengths / Difference -->
+        <section class="py-12 px-5 bg-white border-b border-gray-100">
+            <div class="text-center mb-10">
+                <i class="fas fa-star text-[#c45070] mb-2 block text-xl"></i>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA сайжруулах тарилгын<br><span style="color:#641735;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

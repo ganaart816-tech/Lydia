@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өөх задлах тарилга | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Warm Sand/Beige Gradient */
+        .hero-fat {
+            position: relative;
+            background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-fat::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+        }
+
+        /* Intro Section: White/Minimal */
+        .intro-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        /* 3MAX Laser Section: Soft Pink matching image */
+        .laser-section {
+            background: #fce7f3;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Carboxy Section: Dark Maroon matching image */
+        .carboxy-section {
+            background: linear-gradient(160deg, #4c1d2d 0%, #2a0816 100%);
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Features Section: Warm Beige matching image */
+        .features-section {
+            background: #fdf8f5;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #f5ebe0;
+        }
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .process-item {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 10px rgba(227,213,202,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #f5ebe0;
+        }
+        .process-icon {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4a373, #faedcd);
+            display: flex; align-items: center; justify-content: center;
+            color: #8c2444;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Body Areas Section: Ice Blue matching image */
+        .areas-section {
+            background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 100%);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .area-pill {
+            background: white;
+            border: 1px solid #bae6fd;
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #0369a1;
+            box-shadow: 0 4px 10px rgba(186,230,253,0.3);
+            display: inline-block;
+            margin: 4px;
+        }
+
+        /* Time & Process: Dark Brown matching image */
+        .time-section {
+            background: linear-gradient(160deg, #5c4033 0%, #3e2723 100%);
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Advantages (Clinic Standard Pink) */
+        .adv-section {
+            background: #ffffff;
+            padding: 50px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #d4a373;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(212,163,115,0.4);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #5c4033;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#d4a373] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Өөх задлах тарилга</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-fat">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#8c5220] uppercase">Биеийн галбир засах, өөх задлах</span>
+                
+                <h2 class="text-[30px] font-extrabold text-[#5c4033] leading-tight mb-2">Өөх задлах<br><span class="text-[22px]">тарилга (PPC)</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#8c5220] bg-white shadow-sm border border-[#e3d5ca]">
+                    FAT DISSOLVING
+                </div>
+                
+                <p class="text-[12px] text-[#5c4033] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#e3d5ca] opacity-80">
+                    Дасгал сургуулилт, хоолны дэглэмээр арилдаггүй хэсэгчилсэн өөхийг хайлуулж, биеийн галбирыг төгс болгоно.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#8c5220] font-bold block mb-1">PPC Injection</span>
+            <h3 class="text-[22px] font-bold text-gray-900 mb-6 border-b-2 border-[#d4a373] inline-block pb-1">PPC тарилга <span class="font-normal text-gray-600">гэж юу вэ?</span></h3>
+            
+            <p class="text-[13px] font-bold text-[#5c4033] leading-relaxed mb-4">
+                PPC (Phosphatidylcholine) тарилга нь шар буурцагнаас гаргаж авсан лецитиний найрлагатай бөгөөд өөхний эсийн 막 (мембран)-ыг устгаж, өөхийг хайлуулах үйлчилгээтэй.
+            </p>
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed mb-6">
+                Мэс заслын аргаар биш, тарианы аргаар хэсэгчилсэн өөхийг үр дүнтэйгээр арилгах боломжтой. Хайлсан өөх нь биеийн бодисын солилцооны явцад хөлс болон шээсээр гадагшилдаг тул маш аюулгүй юм.
+            </p>
+        </section>
+
+        <!-- 3MAX Laser Section -->
+        <section class="laser-section">
+            <h3 class="text-[24px] font-bold text-[#831843] mb-2 tracking-tight">3MAX Laser</h3>
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#c45070] font-bold block mb-6">Ultrasonic & RF Therapy</span>
+            
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-pink-100 max-w-[300px] mx-auto">
+                <i class="fas fa-satellite-dish text-[40px] text-[#f472b6] mb-4"></i>
+                <div class="bg-[#831843] text-white text-[11px] font-bold py-1.5 px-4 rounded-full inline-block mb-3">Хэт авиан & Радио давтамж</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Хэт авиан болон радио давтамжийн (RF) энергийг ашиглан арьсны гүнд орших өөхний эсийг хайлуулж, целлюлитийг арилгахын зэрэгцээ арьсыг чангалах цогц үйлчилгээтэй төхөөрөмж.
+                </p>
+            </div>
+        </section>
+
+        <!-- Carboxy Section -->
+        <section class="carboxy-section">
+            <h3 class="text-[24px] font-bold text-white mb-2 tracking-tight">Карбокси (Carboxy)</h3>
+            <span class="text-[10px] tracking-[0.2em] uppercase text-pink-300 font-bold block mb-5">Carboxy Therapy</span>
+            
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 max-w-[300px] mx-auto">
+                <div class="bg-pink-300/20 text-pink-100 text-[11px] font-bold py-1.5 px-4 rounded-full inline-block mb-3 border border-pink-300/30">Арьсан доорх хийн тарилга</div>
+                <p class="text-[12px] text-pink-50 font-medium leading-relaxed">
+                    Арьсан доорх өөхөн давхаргад хүний биед хоргүй, шингэрүүлсэн CO2 хийг тарьснаар физикийн болон химийн урвалаар өөхний эсийг задалж, цусны эргэлтийг сайжруулан өөхийг гадагшлуулна.
+                </p>
+            </div>
+        </section>
+
+        <!-- PPC Features Section (Beige) -->
+        <section class="features-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#8c5220] font-bold block mb-1">Process</span>
+            <h3 class="text-[20px] font-bold text-[#5c4033] mb-6">PPC тарилгын <span class="text-[#d4a373]">онцлог</span></h3>
+
+            <div class="process-flow">
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-syringe"></i></div>
+                    <div class="text-left">
+                        <h4 class="text-[13px] font-bold text-[#5c4033] mb-1">1. Тарилга хийх</h4>
+                        <p class="text-[11px] text-gray-600 leading-relaxed">Өөхлөлт ихтэй хэсэгт PPC тарилгыг хийнэ.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-fire-alt"></i></div>
+                    <div class="text-left">
+                        <h4 class="text-[13px] font-bold text-[#5c4033] mb-1">2. Эсийн мембран устах</h4>
+                        <p class="text-[11px] text-gray-600 leading-relaxed">PPC бодис өөхний эсийн гадна бүрхүүлийг устгана.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-tint-slash"></i></div>
+                    <div class="text-left">
+                        <h4 class="text-[13px] font-bold text-[#5c4033] mb-1">3. Өөх хайлах</h4>
+                        <p class="text-[11px] text-gray-600 leading-relaxed">Өөхний эс задарч, шингэн төлөвт шилжинэ.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-water"></i></div>
+                    <div class="text-left">
+                        <h4 class="text-[13px] font-bold text-[#5c4033] mb-1">4. Гадагшлах</h4>
+                        <p class="text-[11px] text-gray-600 leading-relaxed">Хайлсан өөх тунгалгийн системээр дамжин шээс, хөлсөөр гадагшилна.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-check"></i></div>
+                    <div class="text-left">
+                        <h4 class="text-[13px] font-bold text-[#5c4033] mb-1">5. Хэмжээ багасах</h4>
+                        <p class="text-[11px] text-gray-600 leading-relaxed">Өөхний эсийн тоо цөөрч, тухайн хэсгийн хэмжээ эрс багасна.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatment Areas Section (Light Blue) -->
+        <section class="areas-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#0369a1] font-bold block mb-1">Target Areas</span>
+            <h3 class="text-[22px] font-bold text-[#0c4a6e] mb-8">Эмчилгээ хийх хэсгүүд</h3>
+
+            <div class="relative w-full max-w-[320px] mx-auto">
+                <i class="fas fa-female text-[180px] text-[#bae6fd] opacity-50 mb-6 drop-shadow-md"></i>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center gap-3">
+                    <div class="area-pill">Гар, бугалга</div>
+                    <div class="area-pill">Хөхний даруулгын шугам</div>
+                    <div class="area-pill">Хэвлий (гэдэс)</div>
+                    <div class="area-pill">Хажуугийн өөх (Love handles)</div>
+                    <div class="area-pill">Гуя</div>
+                    <div class="area-pill">Шилбэ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time & Process Section (Dark Brown) -->
+        <section class="time-section">
+            <h3 class="text-[18px] font-bold text-white mb-6 border-b border-white/20 pb-2 inline-block">Системийн цаг болон үйл явц</h3>
+            
+            <div class="text-[12px] text-white/80 leading-relaxed space-y-3 font-medium text-left max-w-[300px] mx-auto bg-white/5 p-4 rounded-xl border border-white/10">
+                <p><i class="fas fa-clock text-[#d4a373] mr-2"></i> Системийн үргэлжлэх хугацаа нь хэсгээс хамаарч <strong>10~20 минут</strong> зарцуулна.</p>
+                <p><i class="fas fa-calendar-check text-[#d4a373] mr-2"></i> Үр дүн ихэвчлэн <strong>2-3 долоо хоногийн дараагаас</strong> мэдэгдэж эхэлнэ.</p>
+                <p><i class="fas fa-sync-alt text-[#d4a373] mr-2"></i> Хамгийн сайн үр дүнд хүрэхийн тулд <strong>3~5 удаагийн</strong> давтамжтай (2-4 долоо хоногийн зайтай) хийлгэхийг зөвлөдөг.</p>
+            </div>
+        </section>
+
+        <!-- Advantages (Clinic Standard) -->
+        <section class="adv-section">
+            <div class="text-center mb-10">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[#d4a373] font-bold block mb-1">Lydia Clinic</span>
+                <h3 class="text-xl font-bold text-[#5c4033] leading-tight">Өөх задлах тарилгын<br>давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-10 mt-6">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Мэргэжлийн<br>эмчийн үзлэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Аюулгүй байдал &<br>баталгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Нарийвчилсан<br>хяналт арчилгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>үр дүн</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

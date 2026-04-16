@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайжруулах мэс засал | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(180deg, #ffeae8 0%, #ffd1d2 100%);
+            overflow: hidden;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        /* 4 Info Badges */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: -25px 20px 20px 20px;
+            position: relative;
+            z-index: 20;
+        }
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #f9dfe4;
+        }
+        .info-icon {
+            font-size: 24px;
+            color: #d85c70;
+            margin-bottom: 8px;
+        }
+        .info-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #641735;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+        .info-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            line-height: 1.3;
+        }
+
+        /* Principle Diagram Box */
+        .principle-box {
+            background: white;
+            border: 2px solid #ffd1d2;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+        }
+
+        /* Dark 5 Circles Section */
+        .benefits-section {
+            background: #474343;
+            padding: 50px 20px;
+            position: relative;
+        }
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .benefit-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #fb6a7b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+            box-shadow: 0 8px 20px rgba(251,106,123,0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        /* Needs Target Section (Light Pink) */
+        .needs-section {
+            background: #fff5f5;
+            padding: 50px 20px;
+            color: #3d0e1f;
+        }
+        .needs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .needs-item {
+            background: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #ffd1d2;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+            color: #555;
+        }
+
+        /* Strengths Grid */
+        .strength-card {
+            background: white;
+            border: 1px solid #fdf0f2;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #641735;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(100,23,53,0.4);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #d85c70;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        /* Abstract Footer */
+        .abstract-footer {
+            background: linear-gradient(135deg, #e4def3, #fdf0f2);
+            padding: 50px 30px;
+            text-align: center;
+            color: #4a4a4a;
+            position: relative;
+            overflow: hidden;
+        }
+        .abstract-footer::before {
+            content: '';
+            position: absolute;
+            top: -20px; right: -20px;
+            width: 150px; height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#641735] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Сайжруулах мэс засал</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="relative z-10 pt-4 pb-12">
+                <div class="inline-block px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#d85c70] bg-white shadow-sm mb-4">VAGINAL SURGERY</div>
+                
+                <h2 class="text-[26px] font-extrabold text-[#3d0e1f] leading-tight mb-4">Сайжруулах мэс засал<br><span class="text-[18px] text-[#641735] opacity-80">(Үтрээний мэс засал)</span></h2>
+                
+                <div class="w-10 h-1 mx-auto rounded-full mb-5 bg-[#d85c70]"></div>
+                
+                <p class="text-[15px] text-[#8c2444] font-bold leading-relaxed mb-3">
+                    Баталгаатай уян хатан үр дүн!<br>Үтрээний салст бүрхэвч болон уян хатан чанарыг бэхжүүлснээр найдвартай үтрээ чангалалт
+                </p>
+                <p class="text-[13px] text-gray-600 font-medium">
+                    Төрөлт, хөгшрөлт болон бэлгийн харьцааны улмаас суларч уужим болсон үтрээг чангалах!
+                </p>
+            </div>
+        </section>
+
+        <!-- 4 Grid Info -->
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-clock info-icon"></i>
+                <div class="info-title">Мэс заслын хугацаа</div>
+                <div class="info-value">1 цаг орчим</div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-calendar-alt info-icon"></i>
+                <div class="info-title">Нөхөн сэргээх</div>
+                <div class="info-value">3~4 долоо хоног</div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-syringe info-icon"></i>
+                <div class="info-title">Мэдээ алдуулалт</div>
+                <div class="info-value">Унтуулах مэдээ алдуулалт</div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-band-aid info-icon"></i>
+                <div class="info-title">Оёдол авах</div>
+                <div class="info-value">1~2 долоо хоногийн дараа</div>
+            </div>
+        </div>
+
+        <!-- Principle of Surgery Box -->
+        <div class="principle-box">
+            <span class="text-xs font-bold tracking-widest text-[#d85c70] block mb-1">PRINCIPLE</span>
+            <h3 class="text-[17px] font-bold text-[#3d0e1f] mb-6">Үтрээ чангалах мэс заслын зарчим</h3>
+            
+            <div class="flex justify-center items-center gap-2 mb-6">
+                <div class="text-center flex-1">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-pink-50 border-2 border-pink-200 flex items-center justify-center mb-2 overflow-hidden shadow-inner">
+                        <i class="fas fa-dot-circle text-pink-300 text-3xl"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded-full">Хэвийн үтрээ</span>
+                </div>
+                <i class="fas fa-arrow-right text-gray-300 text-lg"></i>
+                <div class="text-center flex-1">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-red-50 border-2 border-red-200 flex items-center justify-center mb-2 overflow-hidden shadow-inner">
+                        <i class="far fa-circle text-red-300 text-4xl"></i>
+                    </div>
+                    <span class="text-xs font-bold text-red-500 bg-red-50 px-2 py-1 rounded-full">Суларсан үтрээ</span>
+                </div>
+            </div>
+            
+            <p class="text-[13px] font-medium text-gray-600 leading-relaxed text-center bg-gray-50 p-3 rounded-lg border border-gray-100">
+                Суларсан үтрээний ханыг агшааж чангалах мэс засал бөгөөд зөвхөн хэмжээг багасгаад зогсохгүй үтрээний булчингийн уян хатан чанарыг сэргээдэг.
+            </p>
+        </div>
+
+        <!-- 5 Benefits Circles (Dark BG) -->
+        <section class="benefits-section">
+            <h3 class="text-xl font-bold text-center text-white mb-2">Үтрээ чангалах <span class="text-[#fb6a7b]">Мэс заслын давуу тал</span></h3>
+            
+            <div class="benefits-grid">
+                <div class="benefit-circle">
+                    Суларсан үтрээний булчин болон ханыг сэргээх
+                </div>
+                <div class="benefit-circle">
+                    Үтрээнээс хий гарах шинж тэмдгийг сайжруулах
+                </div>
+                <div class="benefit-circle">
+                    Үтрээний үрэвсэл, шээс задгайралт зэрэг өвнөөс урьдчилан сэргийлэх
+                </div>
+                <div class="benefit-circle" style="width:110px; height:110px;">
+                    Бэлгийн<br>дур хүсэл<br>нэмэгдэнэ
+                </div>
+                <div class="benefit-circle" style="width:110px; height:110px;">
+                    Өөртөө итгэх<br>итгэлийг<br>сэргээх
+                </div>
+            </div>
+        </section>
+
+        <!-- Needs Section -->
+        <section class="needs-section">
+            <div class="text-center">
+                <i class="fas fa-check-circle text-3xl text-pink-300 mb-3 block"></i>
+                <h3 class="text-[18px] font-bold text-[#3d0e1f] mb-2 leading-snug">Сайжруулах мэс засал<br><span class="text-[#d85c70]">(Үтрээний мэс засал)</span><br>шаардлагатай тохиолдол</h3>
+            </div>
+            
+            <div class="needs-list">
+                <div class="needs-item">Бэлгийн харьцааны үед үтрээнээс хий гарах чимээ гардаг хүмүүс</div>
+                <div class="needs-item">Хамтрагчийн бэлгийн дур хүсэл буурсан хүмүүс</div>
+                <div class="needs-item">Үтрээний үрэвсэл, шээс задгайралт зэргээс шалтгаалан өдөр тутмын амьдралд таагүй байгаа хүмүүс</div>
+                <div class="needs-item">Төрөлтийн дараа аарцагны өвдөлт үргэлжилж буй хүмүүс</div>
+                <div class="needs-item">Өөртөө итгэх итгэл буурснаар бэлгийн харьцаанд асуудалтай байгаа хүмүүс</div>
+            </div>
+        </section>
+
+        <!-- Features of Lydia Surgery -->
+        <section class="py-12 px-6 bg-white text-center">
+            <span class="text-[11px] font-bold tracking-widest text-[#c45070] mb-2 block uppercase">Features</span>
+            <h3 class="text-[20px] font-bold text-[#3d0e1f] mb-8">LYDIA үтрээ чангалах мэс заслын <span class="border-b-2 border-pink-300">онцлог</span></h3>
+
+            <div class="flex flex-col gap-4 text-left">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="pt-1">
+                        <h4 class="text-[14px] font-bold text-gray-800 mb-1">Хамгийн бага зүсэлт</h4>
+                        <p class="text-[12px] text-gray-500 font-medium">Сорви болон өвдөлтөд санаа зовохгүй байх боломжтой</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-gray-100"></div>
+                
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <div class="pt-1">
+                        <h4 class="text-[14px] font-bold text-gray-800 mb-1">Дур хүслийг дээд зэргээр нэмэгдүүлэх</h4>
+                        <p class="text-[12px] text-gray-500 font-medium">Үтрээний доторх нугалааг үүсгэж мэдрэмжийг өсгөх</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-gray-100"></div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="pt-1">
+                        <h4 class="text-[14px] font-bold text-gray-800 mb-1">Нарийвчилсан эмчилгээ</h4>
+                        <p class="text-[12px] text-gray-500 font-medium">Олон жилийн туршлагатай эмч нарын шууд хяналт</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-gray-100"></div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="pt-1">
+                        <h4 class="text-[14px] font-bold text-gray-800 mb-1">Хурдан эдгэрэлт</h4>
+                        <p class="text-[12px] text-gray-500 font-medium">Тухайн өдөртөө эмнэлгээс гарах боломжтой</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Strengths / Difference -->
+        <section class="py-10 px-5 bg-gray-50 border-t border-gray-100">
+            <div class="text-center mb-8">
+                <i class="fas fa-crown text-[#c45070] mb-2 block text-2xl"></i>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA эмэгтэйчүүдийн эмнэлгийн<br><span style="color:#641735;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн 나ريйн<br>мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-user-shield strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хувийн нууцыг<br>чандлан хамгаалах</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-hand-holding-medical strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Олон жилийн<br>арвин туршлага</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-shield-check strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Баталгаажсан 아юулгүй<br>байдал</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-user-nurse strength-icon"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abstract Footer Banner -->
+        <section class="abstract-footer">
+            <i class="fas fa-leaf text-2xl text-purple-300 mb-4 opacity-50"></i>
+            <h3 class="text-[14px] font-bold text-[#641735] leading-relaxed mb-4 relative z-10">
+                Эмэгтэй хүний бие онцгой бөгөөд олон хүчин зүйлээс шалтгаалан өөрчлөгддөг. <br>
+                <span class="text-gray-600 font-medium">Мэргэжлийн эмчтэй зөвлөлдөөрэй.</span>
+            </h3>
+            <div class="inline-block px-6 py-2 bg-white/60 backdrop-blur-sm border border-white/40 rounded-full text-[13px] font-bold text-[#3d0e1f] relative z-10 shadow-sm">
+                LYDIA-тай 진료받으세요
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

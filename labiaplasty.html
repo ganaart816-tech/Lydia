@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жижиг уруулын мэс засал | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fcf8f9; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Premium Pink Hero */
+        .hero-premium {
+            position: relative;
+            background: linear-gradient(135deg, #fdf0f2 0%, #ffdde3 100%);
+            padding: 40px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+
+        /* Intro Section */
+        .intro-wrap {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Dark Pink Advantages Module */
+        .adv-section {
+            background: #fff5f7;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #ffe3e8;
+            border-bottom: 1px solid #ffe3e8;
+        }
+        .adv-box {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(200,80,110,0.08);
+            border: 1px solid #ffe3e8;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .adv-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .adv-item:last-child { margin-bottom: 0; }
+        .adv-num {
+            width: 24px; height: 24px;
+            background: #3d0e1f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* Symptoms Visual Grid */
+        .symptoms-section {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .symptom-shapes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 25px 0;
+        }
+        .shape-card {
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            border-radius: 12px;
+            padding: 15px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .shape-icon {
+            width: 28px; height: 40px;
+            background: #ffb3c6;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+        .shape-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #555;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .symptom-list-item {
+            background: #fdf5f6;
+            border-left: 3px solid #ff8fab;
+            padding: 15px;
+            margin-bottom: 10px;
+            text-align: left;
+            border-radius: 0 12px 12px 0;
+        }
+        .symptom-item-title {
+            font-size: 13px; font-weight: 800; color: #b03a5b; margin-bottom: 4px;
+        }
+        .symptom-item-desc {
+            font-size: 12px; font-weight: 500; color: #555; line-height: 1.4;
+        }
+
+        /* Dark Precautions Footer */
+        .precautions-section {
+            background: linear-gradient(180deg, #382823 0%, #20130f 100%);
+            padding: 50px 20px;
+            color: #ffe8eb;
+        }
+        .precaution-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .precaution-item:last-child { border-bottom: none; }
+        .p-icon { color: #f5b0ba; font-size: 14px; margin-top: 2px; }
+        .p-text { font-size: 12px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.85); }
+
+        /* Universal Strengths */
+        .strength-card {
+            background: white;
+            border: 1px solid #fdf0f2;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #c45070;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(196,80,112,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#b03a5b] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Жижиг уруулын мэс засал</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Premium Hero -->
+        <section class="hero-premium">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#b03a5b] uppercase">Лазер үтрээний мэс засал</span>
+                
+                <h2 class="text-[28px] font-extrabold text-[#3d0e1f] leading-tight mb-2">Жижиг уруулын<br>мэс засал</h2>
+                
+                <div class="inline-block mt-2 mb-6 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-white bg-[#b03a5b] shadow-md">
+                    LASER LABIAPLASTY
+                </div>
+                
+                <p class="text-[13px] text-[#852742] font-bold leading-relaxed max-w-[280px] mx-auto opacity-90">
+                    Суларсан жижиг уруул, барзгар хар сорвийг хүртэл анхны гоо сайханд нь буцаах шидэт арга!
+                </p>
+                <div class="mt-3 text-[12px] font-semibold text-pink-700 bg-white/50 backdrop-blur-sm py-2 px-4 rounded-full inline-block">
+                    Цайвар, гөлгөр ягаан өнгийн жижиг уруул
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro -->
+        <section class="intro-wrap">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Лазер <span class="text-[#b03a5b]">жижиг уруулын мэс засал</span></h3>
+            
+            <p class="text-[13px] font-medium text-gray-600 leading-loose text-left mb-4">
+                Жижиг уруул нь үтрээний амсрын эргэн тойронд байрлах хос далавч хэлбэртэй эд юм. Ичиж зовсноос болж эмнэлэгт хандахгүй байх нь элбэг ч нас ахих тусам арьсны нөхөн төлжилт удааширч шинж тэмдэг нь хүндэрдэг.
+            </p>
+            <p class="text-[13px] font-medium text-gray-600 leading-loose text-left bg-gray-50 p-4 border border-gray-100 rounded-xl">
+                Ийм үед сулрах, томрох нь ихсэж, хувцас өмсөхөд эвгүй оргих, өвдөж эхэлдэг тул заавал анхаарч мэс засал хийлгэх шаардлагатай болдог. <strong class="text-[#b03a5b]">LYDIA эмнэлэг нь лазер ашиглан</strong> өвдөлт болон цус алдалтыг хамгийн бага түвшинд байлгаж, хэлбэрт нь тааруулан мэс засал хийдэг.
+            </p>
+        </section>
+
+        <!-- Advantages Module -->
+        <section class="adv-section">
+            <div class="inline-flex items-center justify-center gap-2 mb-2">
+                <i class="fas fa-magic text-[#b03a5b]"></i>
+                <h3 class="text-lg font-bold text-[#3d0e1f]">Жижиг уруулын мэс заслын давуу тал</h3>
+            </div>
+            
+            <div class="adv-box">
+                <div class="adv-item">
+                    <div class="adv-num">1</div>
+                    <div class="pt-0.5 text-[13px] font-bold text-gray-800">Лазер мэс засал тул цус алдалт, хаванг багасгана</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-num">2</div>
+                    <div class="pt-0.5 text-[13px] font-bold text-gray-800">Мэс заслын хугацаа 1-2 цаг орчим</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-num">3</div>
+                    <div class="pt-0.5 text-[13px] font-bold text-gray-800">Мэс заслын дараа шууд хэвийн амьдралд орох боломжтой</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-num">4</div>
+                    <div class="pt-0.5 text-[13px] font-bold text-gray-800">Хэлбэрт нь тохируулсан мэс засал</div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-num">5</div>
+                    <div class="pt-0.5 text-[13px] font-bold text-gray-800">Өнгө засаж, сорвигүйгээр төрөлхийн мэт үр дүн гарна</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Symptoms & Needs -->
+        <section class="symptoms-section">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Жижиг уруулын мэс засал<br><span class="text-[#b03a5b]">шаардлагатай тохиолдол</span></h3>
+            
+            <!-- Shapes Visualizer -->
+            <div class="symptom-shapes-grid">
+                <div class="shape-card border border-pink-200 bg-pink-50">
+                    <div class="shape-icon shadow-sm" style="background:#ff8fab;"></div>
+                    <span class="shape-label text-pink-700">Төгс хэлбэр</span>
+                </div>
+                <div class="shape-card">
+                    <div class="shape-icon" style="border-radius: 50% 50% 50% 50% / 70% 30% 60% 40%; background:#e89cb0"></div>
+                    <span class="shape-label">Тэгш бус хэм</span>
+                </div>
+                <div class="shape-card">
+                    <div class="shape-icon" style="width: 38px; background:#e89cb0"></div>
+                    <span class="shape-label">Хоёр тал нь том</span>
+                </div>
+                <div class="shape-card">
+                    <div class="shape-icon" style="border-radius: 50% 50% 50% 50% / 60% 60% 40% 70%; width:34px; background:#e89cb0"></div>
+                    <span class="shape-label">Нэг тал нь том</span>
+                </div>
+                <div class="shape-card">
+                    <div class="shape-icon" style="background: repeating-linear-gradient(45deg, #e89cb0, #e89cb0 5px, #d6879c 5px, #d6879c 10px);"></div>
+                    <span class="shape-label">Нугалаа ихтэй</span>
+                </div>
+                <div class="shape-card">
+                    <div class="shape-icon" style="background:#6b4d54"></div>
+                    <span class="shape-label">Харласан</span>
+                </div>
+            </div>
+
+            <!-- Bullet details -->
+            <div class="flex flex-col mt-4">
+                <div class="symptom-list-item">
+                    <h4 class="symptom-item-title">Жижиг уруул томрох</h4>
+                    <p class="symptom-item-desc">Жижиг уруул хэвийн бусаар томорч хөдөлгөөнд саад болох, бэлгийн харьцааны үед үтрээ рүү хумигдаж орох</p>
+                </div>
+                <div class="symptom-list-item">
+                    <h4 class="symptom-item-title">Тэгш бус хэм</h4>
+                    <p class="symptom-item-desc">Хоёр талын жижиг уруулын хэмжээ өөр байх</p>
+                </div>
+                <div class="symptom-list-item">
+                    <h4 class="symptom-item-title">Харлах</h4>
+                    <p class="symptom-item-desc">Төрөлхийн эсвэл байнга үрэгдэх, үрэвсэх зэргээс шалтгаалан өнгө нь харлах</p>
+                </div>
+                <div class="symptom-list-item">
+                    <h4 class="symptom-item-title">Үрэвсэл, ялгадас, үнэр гарах</h4>
+                    <p class="symptom-item-desc">Нугалаатай жижиг уруул завсар ялгадас үлдэж, үтрээний үрэвсэл амархан үүсэж, үнэр гарах</p>
+                </div>
+                <div class="symptom-list-item">
+                    <h4 class="symptom-item-title">Гоо сайхны хувьд өөртөө итгэлгүй байх</h4>
+                    <p class="symptom-item-desc">Илүү гоё хэлбэртэй болохыг хүсэж комплекстэй байх</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Universal 6 Strengths -->
+        <section class="py-12 px-5 bg-white border-t border-gray-100">
+            <div class="text-center mb-10">
+                <i class="fas fa-crown text-[#c45070] mb-2 block text-2xl"></i>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA жижиг уруулын мэс заслын<br><span style="color:#b03a5b;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн<br>нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-user-shield text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-hand-holding-medical text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-shield-check text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-user-nurse text-[28px] text-[#e89cb0] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Precautions Footer -->
+        <section class="precautions-section">
+            <h3 class="text-[18px] font-bold text-center mb-6 text-white border-b border-white/20 pb-4 inline-block mx-auto">
+                <i class="fas fa-exclamation-circle text-[#f5b0ba] mr-2"></i>Жижиг уруулын мэс заслын анхаарах зүйлүүд
+            </h3>
+            
+            <div class="flex flex-col mt-2">
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Мэс заслын дараа 2-3 хоног хөнгөн шүршүүрт орж, ваннд орохоос зайлсхийгээрэй!</span>
+                </div>
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Саун, халуун рашаанд орох зэргийг мэс заслаас хойш нэг сарын дараагаас эхлэн хийх боломжтой.</span>
+                </div>
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Мэс заслын дараа 2-3 долоо хоногоос хөнгөн дасгал болон бага зэрэг согтууруулах ундаа хэрэглэхийг зөвшөөрнө.</span>
+                </div>
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Бэлгийн харьцаанд орох болон хүнд дасгал хөдөлгөөнийг нэг сарын дараа эмчтэйгээ зөвлөлдсөний үндсэн дээр хийж болно.</span>
+                </div>
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Тав унах үе тул дор хаяж 4 долоо хоног нийтийн тээврээр (дугуй, морь г.м) үйлчлүүлэхээс татгалзаарай.</span>
+                </div>
+                <div class="precaution-item">
+                    <i class="fas fa-check-circle p-icon"></i>
+                    <span class="p-text">Мэс заслын хэсэгт даралт өгөх бариу дотуур хувцас эсвэл өмд өмсөхөөс зайлсхийгээрэй!</span>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

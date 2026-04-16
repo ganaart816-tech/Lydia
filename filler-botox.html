@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Филлер, ботокс | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Peach/Pink Gradient Matching Image */
+        .hero-filler {
+            position: relative;
+            background: linear-gradient(135deg, #fdf6f5 0%, #fcd5ce 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-filler::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+        }
+
+        /* Intro Section (White) */
+        .intro-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .def-block {
+            margin-bottom: 30px;
+        }
+        .def-block:last-child { margin-bottom: 0; }
+        .def-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #831843;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .def-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 50%;
+            transform: translateX(-50%);
+            width: 30px; height: 2px;
+            background: #f472b6;
+        }
+
+        /* Target Section: Soft Purple Graphic Matching Image */
+        .target-section {
+            background: linear-gradient(180deg, #fdf4ff 0%, #f3e8ff 100%);
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .target-group-title {
+            background: white;
+            color: #7e22ce;
+            border: 1px solid #d8b4fe;
+            border-radius: 30px;
+            padding: 6px 20px;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(126,34,206,0.05);
+        }
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .target-circle {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(126,34,206,0.05);
+            border: 1px solid rgba(216,180,254,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .target-num {
+            width: 26px; height: 26px;
+            background: #9333ea;
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(147,51,234,0.3);
+        }
+        .target-text {
+            font-size: 11px;
+            color: #4b5563;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Process Section (White) */
+        .process-section {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .step-col {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .step-circle {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: #fdf4ff;
+            border: 2px solid #e9d5ff;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 10px;
+            color: #9333ea;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+        .step-circle img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .step-badge {
+            background: #9333ea;
+            color: white;
+            font-size: 9px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+        }
+        .step-text {
+            font-size: 11px;
+            color: #4c1d95;
+            font-weight: 700;
+        }
+
+        /* Effects Section: Dark Charcoal Matching Image */
+        .effect-section {
+            background: linear-gradient(180deg, #333333 0%, #1a1a1a 100%);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+        }
+        .effect-title {
+            color: #fce7f3;
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .ef-divider {
+            width: 25px; height: 2px; background: #c45070;
+        }
+        .effect-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .effect-box::before { content: '"'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 40px; color: rgba(255,255,255,0.1); font-family: serif; }
+        .effect-box p {
+            font-size: 12px;
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .effect-box p:last-child { margin-bottom: 0; }
+
+        /* Advantages (Clinic Standard Pink) */
+        .adv-section {
+            background: #ffffff;
+            padding: 50px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #c45070;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(196,80,112,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #831843;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#9f1239] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Филлер / Ботокс</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-filler">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-1 text-[#9f1239] uppercase">Залуу мөнхийн гоо үзэсгэлэн</span>
+                
+                <h2 class="text-[32px] font-extrabold text-[#7c2d12] leading-tight mb-2">Филлер / 보톡스<br><span class="text-[20px] tracking-widest">(Ботокс)</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-white bg-[#9f1239] shadow-sm">
+                    FILLER & BOTOX
+                </div>
+                
+                <p class="text-[12px] text-[#7c2d12] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#fca5a5]/40 opacity-90">
+                    Мэс засалгүйгээр нүүрний хэлбэрийг төгс болгож, үрчлээний эсрэг хүчтэй үйлчлэх хурдан бөгөөд аюулгүй шийдэл.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <div class="def-block">
+                <h3 class="def-title">Филлер <span class="font-normal text-[15px] text-gray-500">гэж юу вэ?</span></h3>
+                <p class="text-[12px] font-medium text-gray-600 leading-relaxed mt-4">
+                    <strong>Филлер (Filler)</strong> нь арьсны эд эстэй ижил бүтэцтэй бодисыг (ихэвчлэн гиалуроны хүчил) хүнхэр буюу эзэлхүүн дутагдсан хэсэгт тарьж хэлбэржүүлэх мэс засалгүй эмчилгээ юм. Нас ахих тусам ширгэж хүнхэр болсон нүүрийг дүүргэж, илүү 3 хэмжээст (3D) хэлбэртэй, залуу харагдуулдаг.
+                </p>
+            </div>
+            
+            <div class="w-16 h-px bg-gray-200 mx-auto my-6"></div>
+            
+            <div class="def-block">
+                <h3 class="def-title">Ботокс <span class="font-normal text-[15px] text-gray-500">гэж юу вэ?</span></h3>
+                <p class="text-[12px] font-medium text-gray-600 leading-relaxed mt-4">
+                    <strong>Ботокс (Botox)</strong> нь ботулинум токсин (Botulinum Toxin) хэмээх бодисыг булчинд тарьж, булчингийн агшилтыг түр зуур саатуулдаг. Ингэснээр нүүрний хувирлаас үүссэн үрчлээг тэнийлгэхээс гадна хэт хөгжсөн том булчинг (дөрвөлжин эрүү, мөр, шилбэ) жижигрүүлэх үйлчилгээтэй.
+                </p>
+            </div>
+        </section>
+
+        <!-- Target Section (Purple Gradient) -->
+        <section class="target-section">
+            <h3 class="text-[22px] font-bold text-[#4c1d95] mb-6">Хэнд санал болгох вэ?</h3>
+            
+            <div class="target-group-title">Филлер / Filler</div>
+            <div class="target-grid">
+                <div class="target-circle">
+                    <div class="target-num">01</div>
+                    <div class="target-text">Нүүрний хүнхэртэж ширгэсэн хэсэгтээ өөртөө итгэлгүй байгаа хүмүүс</div>
+                </div>
+                <div class="target-circle">
+                    <div class="target-num">02</div>
+                    <div class="target-text">Эзэлхүүн дутагдсаны улмаас үрчлээ нь илүү гүнзгий харагдаад байгаа хүмүүс</div>
+                </div>
+                <div class="target-circle">
+                    <div class="target-num">03</div>
+                    <div class="target-text">Мэс засалгүйгээр нүүрний 3D төгс хэлбэрийг үүсгэхийг хүсэж буй хүмүүс</div>
+                </div>
+                <div class="target-circle">
+                    <div class="target-num">04</div>
+                    <div class="target-text">Шууд үр дүнгээ харж, хурдан хугацаанд эдгэрч ажилдаа орохыг хүссэн хүмүүс</div>
+                </div>
+            </div>
+
+            <div class="target-group-title">Ботокс / Botox</div>
+            <div class="target-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="target-circle">
+                    <div class="target-num">01</div>
+                    <div class="target-text">Нүдний эргэн тойрон, хөмсөг, духны үрчлээтэй хүмүүс</div>
+                </div>
+                <div class="target-circle">
+                    <div class="target-num">02</div>
+                    <div class="target-text">Булчин хөгжсөнөөс дөрвөлжин эрүүтэй болсон хүмүүс (V-line)</div>
+                </div>
+                <div class="target-circle">
+                    <div class="target-num">03</div>
+                    <div class="target-text">Мөрний булчин (трапец) болон шилбэний булчин хэт томорсон хүмүүс</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#9f1239] font-bold block mb-1">Procedure Steps</span>
+            <h3 class="text-[20px] font-bold text-gray-900 mb-2">Филлер / Ботокс<br>Эмчилгээний үе шат</h3>
+
+            <div class="process-steps">
+                <div class="step-col">
+                    <div class="step-badge">STEP 01</div>
+                    <div class="step-circle"><i class="fas fa-user-md text-[30px]"></i></div>
+                    <div class="step-text">Ганцаарчилсан<br>зөвлөгөө</div>
+                </div>
+                <div class="step-col">
+                    <div class="step-badge">STEP 02</div>
+                    <div class="step-circle"><i class="fas fa-camera text-[30px]"></i></div>
+                    <div class="step-text">Фото зураг<br>авах</div>
+                </div>
+                <div class="step-col">
+                    <div class="step-badge">STEP 03</div>
+                    <div class="step-circle"><i class="fas fa-pen-nib text-[30px]"></i></div>
+                    <div class="step-text">Дизайн<br>төлөвлөх</div>
+                </div>
+                <div class="step-col">
+                    <div class="step-badge" style="background:#4c1d95;">STEP 04</div>
+                    <div class="step-circle"><i class="fas fa-band-aid text-[30px] text-[#4c1d95]"></i></div>
+                    <div class="step-text">Мэдээ<br>алдуулалт</div>
+                </div>
+                <div class="step-col">
+                    <div class="step-badge" style="background:#be185d;">STEP 05</div>
+                    <div class="step-circle" style="border-color:#fbcfe8;"><i class="fas fa-syringe text-[30px] text-[#be185d]"></i></div>
+                    <div class="step-text text-[#be185d]">Эмчилгээ<br>хийх</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Effects Section (Dark Charcoal) -->
+        <section class="effect-section">
+            <h3 class="effect-title"><div class="ef-divider"></div> Филлерийн үр дүн <div class="ef-divider"></div></h3>
+            <div class="effect-box">
+                <p>Филлерийн тохиолдолд эмчилгээний хэсэг, бүтээгдэхүүний төрөл, хувь хүний онцлогоос хамааран өөр байдаг ч ерөнхийдөө БНСУ-д үйлдвэрлэсэн филлер <strong>6-12 сар</strong>, импортын филлер <strong>1-2 жил</strong> хүртэл хугацаанд барьдаг.</p>
+                <p>Хэрэв үр дүнд сэтгэл дундуур байвал хайлуулах тариа хийж буцааж хэвэнд нь оруулах боломжтой тул эмчтэй сайтар зөвлөлдөөрэй.</p>
+            </div>
+
+            <h3 class="effect-title" style="margin-top:50px;"><div class="ef-divider"></div> Ботоксын үр дүн <div class="ef-divider"></div></h3>
+            <div class="effect-box mb-0">
+                <p>Эмчилгээ хийлгэснээс хойш <strong>2-3 долоо хоногийн дараагаас</strong> үр дүн нь нүдэнд харагдаж эхэлнэ.</p>
+                <p>Үр дүн нь дунджаар <strong>3-6 сар</strong> хэвээр хадгалагддаг бөгөөд үр дүнгээ тогтмол хадгалахын тулд <strong>4-6 сар тутамд</strong> давтан хийлгэхийг зөвлөж байна.</p>
+            </div>
+        </section>
+
+        <!-- Advantages (Clinic Standard Pink) -->
+        <section class="adv-section">
+            <div class="text-center mb-10">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[#c45070] font-bold block mb-1">Lydia Clinic</span>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA Филлер/Ботоксын<br>онцгой давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-10 mt-6">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Мэргэжлийн<br>эмчийн үзлэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Аюулгүй байдал &<br>баталгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Нарийвчилсан<br>хяналт арчилгаа</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[12.5px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>үр дүн</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

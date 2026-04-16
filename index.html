@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYDIA CLINIC | Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* 커스텀 스크롤바 등 모바일 앱 느낌을 위한 스타일 */
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* 캐러셀 스타일 */
+        .carousel-wrapper {
+            perspective: 1200px;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -140px;
+            width: 200px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            will-change: transform, opacity, z-index;
+        }
+        .carousel-card .card-bg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .carousel-card .card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+        }
+        .carousel-card .card-overlay p {
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+        }
+        .carousel-card .heart-btn {
+            position: absolute;
+            top: 12px; right: 12px;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 13px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .dot-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 16px;
+        }
+        .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #d1d5db;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .dot.active {
+            background: #641735;
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        /* Scrollbar styles for the mobile menu */
+        .menu-scrollbar::-webkit-scrollbar { width: 4px; }
+        .menu-scrollbar::-webkit-scrollbar-thumb { background: rgba(100,23,53,0.2); border-radius: 4px; }
+
+        /* Marquee ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+            background: linear-gradient(90deg, #641735, #8c2444, #c45070, #8c2444, #641735);
+            position: relative;
+        }
+        .ticker-wrap::before, .ticker-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; width: 30px;
+            z-index: 2;
+        }
+        .ticker-wrap::before { left: 0; background: linear-gradient(90deg, #641735, transparent); }
+        .ticker-wrap::after { right: 0; background: linear-gradient(90deg, transparent, #641735); }
+        .ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker-scroll 18s linear infinite;
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .ticker-item .dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            flex-shrink: 0;
+        }
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="mobile-container relative pb-10">
+        
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h1 class="text-xl font-extrabold tracking-tight" style="color:#641735;">LYDIA CLINIC</h1>
+            </div>
+            <button id="openMenuBtn" class="text-gray-500 hover:text-[#641735] text-xl transition"><i class="fas fa-bars"></i></button>
+        </header>
+
+        <!-- 캐러셀 배너 섹션 -->
+        <!-- Auto-scrolling Ticker -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="ticker-item"><span class="dot"></span> Мэргэшсэн эмнэлэг</span>
+                <span class="ticker-item"><span class="dot"></span> Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</span>
+                <span class="ticker-item"><span class="dot"></span> LYDIA CLINIC</span>
+                <span class="ticker-item"><span class="dot"></span> Мэргэшсэн эмнэлэг</span>
+                <span class="ticker-item"><span class="dot"></span> Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</span>
+                <span class="ticker-item"><span class="dot"></span> LYDIA CLINIC</span>
+            </div>
+        </div>
+
+        <section class="pt-4 pb-6">
+
+            <div class="carousel-wrapper" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div class="dot-indicator" id="dotIndicator"></div>
+
+            <!-- Nav arrows -->
+            <div class="flex items-center justify-center gap-4 mt-4">
+                <button onclick="moveCarousel(-1)" class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 transition" style="transition:all 0.2s;" onmouseover="this.style.borderColor='#641735';this.style.color='#641735';" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#6b7280';">
+                    <i class="fas fa-chevron-left text-xs"></i>
+                </button>
+                <button onclick="moveCarousel(1)" class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 transition" onmouseover="this.style.borderColor='#641735';this.style.color='#641735';" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#6b7280';">
+                    <i class="fas fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+        </section>
+
+        <script>
+        const slides = [
+            {
+                bg: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                img: './assets/img1.png',
+                label: 'Мэргэшсэн эмнэлэг',
+                title: 'Эмэгтэйчүүдийн\nнарийн мэргэжлийн эмнэлэг'
+            },
+            {
+                bg: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                img: './assets/img2.png',
+                label: 'Орчин үеийн технологи',
+                title: '"LYDIA Clinic" —\nолон улсын стандарт'
+            },
+            {
+                bg: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                img: './assets/img3.png',
+                label: 'Урьдчилан сэргийлэх',
+                title: 'Эрүүл мэндийг\nхамгаалах, оношлох'
+            },
+            {
+                bg: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                img: './assets/img4.png',
+                label: 'Лазер эмчилгээ',
+                title: 'Дэвшилтэт технологи\nбүхий эмчилгээ'
+            },
+            {
+                bg: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                img: './assets/img5.png',
+                label: 'Мэс засал',
+                title: 'Косметик мэс заслын\nмэргэжилтнүүд'
+            },
+        ];
+
+        let current = 0;
+        const track = document.getElementById('carouselTrack');
+        const dotCont = document.getElementById('dotIndicator');
+
+        function buildCarousel() {
+            track.innerHTML = '';
+            dotCont.innerHTML = '';
+
+            slides.forEach((s, i) => {
+                const card = document.createElement('div');
+                card.className = 'carousel-card';
+                card.innerHTML = `
+                    <div class="card-bg" style="background: ${s.bg};">
+                        <img src="${s.img}" alt="" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+                        <div class="heart-btn"><i class="fas fa-heart"></i></div>
+                        <div class="card-overlay">
+                            <p>${s.title.replace('\n','<br>')}</p>
+                        </div>
+                    </div>
+                `;
+                card.onclick = () => { current = i; updateCarousel(); };
+                track.appendChild(card);
+
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i === current ? ' active' : '');
+                dot.onclick = () => { current = i; updateCarousel(); };
+                dotCont.appendChild(dot);
+            });
+
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const cards = track.querySelectorAll('.carousel-card');
+            const dots = dotCont.querySelectorAll('.dot');
+            const total = slides.length;
+
+            cards.forEach((card, i) => {
+                const offset = ((i - current + total) % total);
+                const norm = offset > total/2 ? offset - total : offset; // -2 to 2
+
+                let tx = norm * 130;
+                let scale = 1 - Math.abs(norm) * 0.12;
+                let zIndex = 10 - Math.abs(norm);
+                let opacity = norm === 0 ? 1 : (Math.abs(norm) === 1 ? 0.85 : 0.6);
+                let rotY = norm * 8;
+
+                card.style.transform = `translateX(${tx}px) scale(${scale}) rotateY(${rotY}deg)`;
+                card.style.zIndex = zIndex;
+                card.style.opacity = opacity;
+            });
+
+            dots.forEach((d, i) => {
+                d.className = 'dot' + (i === current ? ' active' : '');
+            });
+        }
+
+        function moveCarousel(dir) {
+            current = (current + dir + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        // 자동 슬라이드
+        setInterval(() => moveCarousel(1), 3500);
+
+        buildCarousel();
+
+        // 스와이프 지원
+        let startX = 0;
+        document.getElementById('carousel').addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        document.getElementById('carousel').addEventListener('touchend', e => {
+            const diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) moveCarousel(diff > 0 ? 1 : -1);
+        });
+        </script>
+
+        <section class="py-6">
+            <div class="px-5 mb-5">
+                <span class="text-xs font-bold uppercase tracking-wider" style="color:#641735;">Үйлчилгээ</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Эмэгтэйчүүдийн косметик<br>мэс заслын төрлүүд</h3>
+            </div>
+            
+            <style>
+                .svc-scroll-wrap {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    -webkit-overflow-scrolling: touch;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                    padding: 0 20px 15px 20px;
+                }
+                .svc-scroll-wrap::-webkit-scrollbar { display: none; }
+                .svc-scroll-track {
+                    display: flex;
+                    gap: 14px;
+                    width: max-content;
+                }
+                .svc-slide-card {
+                    scroll-snap-align: start;
+                    border-radius: 20px;
+                    padding: 18px;
+                    width: 160px;
+                    height: 150px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    position: relative;
+                    overflow: hidden;
+                    flex-shrink: 0;
+                }
+                .svc-slide-card:active { transform: scale(0.97); }
+                .svc-slide-card.sc1 { background: linear-gradient(135deg, #641735 0%, #8c2444 100%); }
+                .svc-slide-card.sc2 { background: linear-gradient(135deg, #fdf0f2 0%, #f9dfe4 100%); }
+                .svc-slide-card.sc3 { background: linear-gradient(135deg, #f2b8c6 0%, #e8a0b4 100%); }
+                .svc-slide-card.sc4 { background: linear-gradient(135deg, #fdf0f2 0%, #f5ccd5 100%); }
+                .svc-slide-card.sc5 { background: linear-gradient(135deg, #e8a0b4 0%, #d4748e 100%); }
+                .svc-slide-card.sc6 { background: linear-gradient(135deg, #f9dfe4 0%, #ebb8c5 100%); }
+                .svc-slide-card.sc7 { background: linear-gradient(135deg, #fdf0f2 0%, #f9dfe4 100%); }
+                .svc-slide-card.sc8 { background: linear-gradient(135deg, #641735 0%, #8c2444 100%); }
+
+                .svc-slide-card .s-num { font-size: 11px; font-weight: 700; color: rgba(100,23,53,0.3); }
+                .svc-slide-card .s-icon {
+                    width: 32px; height: 32px; border-radius: 50%;
+                    background: rgba(100,23,53,0.12);
+                    display: flex; align-items: center; justify-content: center;
+                    color: #641735; font-size: 13px;
+                }
+                .svc-slide-card h4 { font-size: 12.5px; font-weight: 700; color: #3d0e1f; line-height: 1.4; }
+
+                /* Light text cards (sc1, sc8 = dark bg) */
+                .svc-slide-card.sc1 .s-num, .svc-slide-card.sc8 .s-num { color: rgba(255,255,255,0.4); }
+                .svc-slide-card.sc1 .s-icon, .svc-slide-card.sc8 .s-icon { background: rgba(255,255,255,0.2); color: #fff; }
+                .svc-slide-card.sc1 h4, .svc-slide-card.sc8 h4 { color: #fff; }
+
+                /* Scroll indicator dots */
+                .scroll-hint {
+                    display: flex;
+                    justify-content: center;
+                    gap: 5px;
+                    margin-top: 12px;
+                    padding: 0 20px;
+                }
+                .scroll-hint-dot {
+                    width: 6px; height: 6px;
+                    border-radius: 50%;
+                    background: #e5e7eb;
+                    transition: all 0.3s;
+                }
+                .scroll-hint-dot.active {
+                    background: #641735;
+                    width: 18px;
+                    border-radius: 3px;
+                }
+            </style>
+
+            <div class="svc-scroll-wrap" id="svcScroller">
+                <div class="svc-scroll-track">
+                    <div class="svc-slide-card sc1">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">01</span>
+                            <div class="s-icon"><i class="fas fa-venus"></i></div>
+                        </div>
+                        <h4>Үтрээ агшаах<br>мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc2">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">02</span>
+                            <div class="s-icon"><i class="fas fa-hand-holding-medical"></i></div>
+                        </div>
+                        <h4>Хярзан (перинэум)<br>оёх мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc3">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">03</span>
+                            <div class="s-icon"><i class="fas fa-leaf"></i></div>
+                        </div>
+                        <h4>Хэлүү (бэлгийн уруул)<br>засах мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc4">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">04</span>
+                            <div class="s-icon"><i class="fas fa-star"></i></div>
+                        </div>
+                        <h4>Үтрээний косметик<br>мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc5">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">05</span>
+                            <div class="s-icon"><i class="fas fa-bullseye"></i></div>
+                        </div>
+                        <h4>G-spot тодруулах<br>мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc6">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">06</span>
+                            <div class="s-icon"><i class="fas fa-droplet-slash"></i></div>
+                        </div>
+                        <h4>Шээс задгайрах<br>эмчилгээний мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc7">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">07</span>
+                            <div class="s-icon"><i class="fas fa-cube"></i></div>
+                        </div>
+                        <h4>Имплант суулгах<br>мэс засал</h4>
+                    </div>
+                    <div class="svc-slide-card sc8">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                            <span class="s-num">08</span>
+                            <div class="s-icon"><i class="fas fa-bolt"></i></div>
+                        </div>
+                        <h4>Үтрээний төрөл бүрийн<br>лазер эмчилгээ</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-hint" id="svcDots">
+                <div class="scroll-hint-dot active"></div>
+                <div class="scroll-hint-dot"></div>
+                <div class="scroll-hint-dot"></div>
+                <div class="scroll-hint-dot"></div>
+            </div>
+
+            <script>
+            (function(){
+                const scroller = document.getElementById('svcScroller');
+                const dots = document.querySelectorAll('#svcDots .scroll-hint-dot');
+                scroller.addEventListener('scroll', function() {
+                    const scrollLeft = scroller.scrollLeft;
+                    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                    const ratio = scrollLeft / maxScroll;
+                    const activeIdx = Math.min(Math.round(ratio * (dots.length - 1)), dots.length - 1);
+                    dots.forEach((d, i) => {
+                        d.classList.toggle('active', i === activeIdx);
+                    });
+                });
+            })();
+            </script>
+        </section>
+
+        <!-- Tab Navigation Section -->
+        <section class="px-5 py-8">
+            <style>
+                .tab-scroll { display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:5px; }
+                .tab-scroll::-webkit-scrollbar { display:none; }
+                .tab-btn {
+                    flex-shrink:0; padding:9px 18px; border-radius:25px; font-size:12px; font-weight:700;
+                    border:1.5px solid #f0c0cc; color:#641735; background:white; cursor:pointer;
+                    transition:all 0.25s; white-space:nowrap; font-family:inherit;
+                }
+                .tab-btn.active { background:linear-gradient(135deg,#641735,#8c2444); color:white; border-color:#641735; box-shadow:0 4px 12px rgba(100,23,53,0.25); }
+                .tab-panel { display:none; margin-top:16px; }
+                .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
+                @keyframes tabFadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+                .tab-link {
+                    display:flex; align-items:center; gap:10px; padding:13px 15px; border-bottom:1px solid #f9f0f2;
+                    text-decoration:none; color:#4b5563; font-size:13px; font-weight:600; transition:all 0.2s;
+                }
+                .tab-link:last-child { border-bottom:none; }
+                .tab-link:hover, .tab-link:active { background:#fdf0f2; color:#641735; }
+                .tab-link i.arrow { margin-left:auto; color:#d1d5db; font-size:10px; }
+                .tab-link .tl-dot { width:6px; height:6px; border-radius:50%; background:#c45070; flex-shrink:0; }
+            </style>
+
+            <div class="tab-scroll" id="tabScroll">
+                <button class="tab-btn active" data-tab="tab1">Гоо сайхны мэс засал</button>
+                <button class="tab-btn" data-tab="tab2">Умай / Шээс</button>
+                <button class="tab-btn" data-tab="tab3">Цайруулах / Толбо</button>
+                <button class="tab-btn" data-tab="tab4">Арьс / Үрчлээ</button>
+                <button class="tab-btn" data-tab="tab5">Хөгшрөлтийн эсрэг</button>
+                <button class="tab-btn" data-tab="tab6">Эмнэлгийн мэдээлэл</button>
+            </div>
+
+            <!-- Panel 1 -->
+            <div class="tab-panel active" id="tab1">
+                <a href="laser-tightening.html" class="tab-link"><span class="tl-dot"></span> Лазер чангалах эмчилгээ <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="vaginal-filler.html" class="tab-link"><span class="tl-dot"></span> Сайжруулах тарилга (үтрээний тарилга) <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="vaginal-surgery.html" class="tab-link"><span class="tl-dot"></span> Сайжруулах мэс засал (үтрээний мэс засал) <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="implant-surgery.html" class="tab-link"><span class="tl-dot"></span> Имплант суулгах гоо сайхан <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="labiaplasty.html" class="tab-link"><span class="tl-dot"></span> Жижиг уруулын мэс засал <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="vaginal-reshaping.html" class="tab-link"><span class="tl-dot"></span> Үтрээний хэлбэр засах <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="gspot-surgery.html" class="tab-link"><span class="tl-dot"></span> G-цэгийн мэс засал <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="tab-panel" id="tab2">
+                <a href="myoma-lysis.html" class="tab-link"><span class="tl-dot"></span> Умай унжилт эмчлэх <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="urinary-incontinence.html" class="tab-link"><span class="tl-dot"></span> Шээс задгайралын мэс засал <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <!-- Panel 3 -->
+            <div class="tab-panel" id="tab3">
+                <a href="blemish-removal.html" class="tab-link"><span class="tl-dot"></span> Сэвх, нөсөө арилгах <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="y-zone-brightening.html" class="tab-link"><span class="tl-dot"></span> Ү бүс цайруулах <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="armpit-brightening.html" class="tab-link"><span class="tl-dot"></span> Суганы цайруулалт <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="elbow-brightening.html" class="tab-link"><span class="tl-dot"></span> Тохойн өнгө сэргээх <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="mole-wart-removal.html" class="tab-link"><span class="tl-dot"></span> Мэнгэ / үү арилгах <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <!-- Panel 4 -->
+            <div class="tab-panel" id="tab4">
+                <a href="lifting.html" class="tab-link"><span class="tl-dot"></span> Өргөх (лифтинг) <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="acne-treatment.html" class="tab-link"><span class="tl-dot"></span> Батга эмчилгээ <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="skin-booster.html" class="tab-link"><span class="tl-dot"></span> Арьс цэвэрлэх (Skin booster) <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="fat-dissolving.html" class="tab-link"><span class="tl-dot"></span> Өөх задлах тарилга <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="laser-hair-removal.html" class="tab-link"><span class="tl-dot"></span> Үс авах (депиляци) <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="filler-botox.html" class="tab-link"><span class="tl-dot"></span> Филлер, ботокс <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <!-- Panel 5 -->
+            <div class="tab-panel" id="tab5">
+                <a href="prp-stem-cell.html" class="tab-link"><span class="tl-dot"></span> PRP / Үүдэл эсний эмчилгээ <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="garlic-injection.html" class="tab-link"><span class="tl-dot"></span> Сармисны тарилга <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <!-- Panel 6 -->
+            <div class="tab-panel" id="tab6">
+                <a href="clinic-intro.html" class="tab-link"><span class="tl-dot"></span> Эмнэлгийн танилцуулга <i class="fas fa-chevron-right arrow"></i></a>
+                <a href="doctor-intro.html" class="tab-link"><span class="tl-dot"></span> Эмчийн танилцуулга <i class="fas fa-chevron-right arrow"></i></a>
+            </div>
+
+            <script>
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab).classList.add('active');
+                });
+            });
+            </script>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+    </div>
+
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/50 z-[100] hidden opacity-0 transition-opacity duration-300"></div>
+        <div id="mobileMenu" class="fixed top-0 bottom-0 bg-white z-[110] shadow-[-10px_0_40px_rgba(0,0,0,0.1)] transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] w-full max-w-[400px] flex flex-col" style="right: 0; transform: translateX(100%);">
+            <div class="flex justify-between items-center p-5 border-b border-gray-100 shrink-0">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                    <span class="text-xl font-extrabold tracking-tight" style="color:#641735;">LYDIA CLINIC</span>
+                </div>
+                <button id="closeMenuBtn" class="text-gray-400 hover:text-[#641735] text-xl w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 transition"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-5 menu-scrollbar">
+                <div class="space-y-1 text-[#3d0e1f]">
+                    <!-- Item 1 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Эмэгтэйчүүдийн гоо сайхны мэс засал
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="laser-tightening.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Лазер чангалах эмчилгээ</a></li>
+                            <li><a href="vaginal-filler.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Сайжруулах тарилга (үтрээний тарилга)</a></li>
+                            <li><a href="vaginal-surgery.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Сайжруулах мэс засал (үтрээний мэс засал)</a></li>
+                            <li><a href="implant-surgery.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Имплант суулгах гоо сайхан</a></li>
+                            <li><a href="labiaplasty.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Жижиг уруулын мэс засал</a></li>
+                            <li><a href="vaginal-reshaping.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Үтрээний хэлбэр засах</a></li>
+                            <li><a href="gspot-surgery.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• G-цэгийн мэс засал</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Умайн асуудал / Шээс задгайрал
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="myoma-lysis.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Умай унжилт эмчлэх</a></li>
+                            <li><a href="urinary-incontinence.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Шээс задгайралын мэс засал</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Арьс цайруулах / Нөсөө толбо
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="blemish-removal.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Сэвх, нөсөө арилгах</a></li>
+                            <li><a href="y-zone-brightening.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Ү бүс цайруулах</a></li>
+                            <li><a href="armpit-brightening.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Суганы цайруулалт</a></li>
+                            <li><a href="elbow-brightening.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Тохойн өнгө сэргээх</a></li>
+                            <li><a href="mole-wart-removal.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Мэнгэ / үү арилгах</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Арьс / Үрчлээ
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="lifting.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Өргөх (лифтинг)</a></li>
+                            <li><a href="acne-treatment.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Батга эмчилгээ</a></li>
+                            <li><a href="skin-booster.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Арьс цэвэрлэх (Skin booster)</a></li>
+                            <li><a href="fat-dissolving.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Өөх задлах тарилга</a></li>
+                            <li><a href="laser-hair-removal.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Үс авах (депиляци)</a></li>
+                            <li><a href="filler-botox.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Филлер, ботокс</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Хөгшрөлтийн эсрэг
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="prp-stem-cell.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• PRP / Үүдэл эсний эмчилгээ</a></li>
+                            <li><a href="garlic-injection.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Сармисны тарилга</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="nav-item border-b border-gray-50 pb-2 mb-2">
+                        <button class="nav-btn w-full flex justify-between items-center text-left font-bold text-[15px] py-3 px-2 rounded-lg transition hover:bg-pink-50/50">
+                            Эмнэлгийн танилцуулга
+                            <i class="fas fa-chevron-down text-xs text-gray-300 transition-transform duration-300"></i>
+                        </button>
+                        <ul class="nav-submenu hidden pl-3 pt-1 pb-3 space-y-1">
+                            <li><a href="clinic-intro.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Эмнэлгийн танилцуулга</a></li>
+                            <li><a href="doctor-intro.html" class="block py-2 px-3 text-[14px] text-gray-600 hover:text-[#c45070] rounded-md transition hover:bg-gray-50">• Эмчийн танилцуулга</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const openMenuBtn = document.getElementById('openMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const backdrop = document.getElementById('mobileMenuBackdrop');
+
+            function toggleMenu() {
+                const isOpen = mobileMenu.style.transform === 'translateX(0%)';
+                if (isOpen) {
+                    mobileMenu.style.transform = 'translateX(100%)';
+                    backdrop.classList.add('opacity-0');
+                    setTimeout(() => backdrop.classList.add('hidden'), 300);
+                } else {
+                    backdrop.classList.remove('hidden');
+                    // force reflow
+                    void backdrop.offsetWidth;
+                    backdrop.classList.remove('opacity-0');
+                    mobileMenu.style.transform = 'translateX(0%)';
+                }
+            }
+
+            openMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            backdrop.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const submenu = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    
+                    if (submenu.classList.contains('hidden')) {
+                        submenu.classList.remove('hidden');
+                        icon.classList.add('rotate-180');
+                        btn.style.color = '#c45070';
+                    } else {
+                        submenu.classList.add('hidden');
+                        icon.classList.remove('rotate-180');
+                        btn.style.color = '';
+                    }
+                });
+            });
+        </script>
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-цэгийн мэс засал | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfb; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Beige Hero */
+        .hero-beige {
+            position: relative;
+            background: linear-gradient(135deg, #fdf6ec 0%, #fae6d3 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-beige::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: color-burn;
+        }
+
+        /* Intro Block */
+        .intro-block {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .method-block {
+            background: #fffcf8;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #f6ecdf;
+        }
+
+        /* Method Graphics */
+        .method-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .method-circle {
+            width: 130px; height: 130px;
+            border-radius: 50%;
+            border: 3px solid #ebd2ba;
+            background: #fcf6f0;
+            display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(235,210,186,0.3);
+        }
+
+        /* Pink Features Block */
+        .pink-features {
+            background: #fae2e8;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 2px solid #f6d1da;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .feature-item {
+            background: rgba(255,255,255,0.6);
+            border: 1px solid #f2cfd8;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+        .feature-icon-wrapper {
+            background: white;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(220,131,154,0.15);
+            color: #d1567b;
+        }
+
+        /* Dark Needs Block */
+        .needs-section {
+            background: linear-gradient(170deg, #382c23 0%, #1e140d 100%);
+            padding: 50px 20px;
+            color: #fff9f5;
+        }
+        .needs-pill {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+            border-radius: 30px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #fcece0;
+        }
+        .needs-pill-num {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: #bf9167;
+            color: #2b1f16;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9px; font-weight: 800;
+            flex-shrink: 0;
+            margin-top: -1px;
+        }
+
+        /* Universal Strengths (Brown Accent) */
+        .strength-card {
+            background: white;
+            border: 1px solid #f5edeb;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #875c3b;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(135,92,59,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#875c3b] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">G-цэгийн мэс засал</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Beige Hero -->
+        <section class="hero-beige">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#734e32] uppercase">Лазер үтрээний мэс засал</span>
+                
+                <h2 class="text-[28px] font-extrabold text-[#382c23] leading-tight mb-2 tracking-tight">G-цэгийн мэс засал</h2>
+                
+                <div class="inline-block mt-2 mb-6 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-white bg-[#875c3b] shadow-sm">
+                    G-SPOT SURGERY
+                </div>
+                
+                <p class="text-[13px] text-[#523824] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#dfc3ab] opacity-90">
+                    Үтрээний хананы салст бүрхэвчийг хэлбэржүүлж, уян хатан чанараа алдсан үтрээний булчинг сэргээн таашаал авах мэдрэмжийг нэмэгдүүлдэг мэс засал.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-block">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-[#a6866f] block mb-1">G-Spot Surgery</span>
+            <h3 class="text-xl font-bold text-[#382c23] mb-6">Лазер G-цэгийн мэс засал</h3>
+            
+            <p class="text-[14px] font-semibold text-[#5c4432] leading-loose text-left mb-4">
+                Үтрээний хананаас 5 см орчим зайд тэмтрэгддэг хэсгийг G-цэг гэж нэрлэдэг бөгөөд энд бэлгийн дур хүслийн цэгүүд төвлөрдөг. 
+            </p>
+            <p class="text-[13px] font-medium text-gray-600 leading-relaxed text-left bg-gray-50 p-4 border border-gray-100 rounded-xl">
+                <strong class="text-[#875c3b]">G-цэг нь дур тавихад маш чухал хэсэг бөгөөд</strong> тасралтгүй үрэлтээр эмэгтэй хүний дур тавилтын дээд цэгт хүрэх боломжийг олгодог.
+            </p>
+        </section>
+
+        <!-- Method Section -->
+        <section class="method-block">
+            <h3 class="text-lg font-bold text-[#382c23] mb-4">G-цэгийн мэс заслын арга</h3>
+            <span class="text-[10px] uppercase tracking-widest text-[#a6866f]">G-Spot Surgery Method</span>
+            
+            <!-- Graphic Interpretation -->
+            <div class="method-visual">
+                <div class="method-circle text-center">
+                    <div>
+                        <i class="fas fa-layer-group text-3xl text-[#d1a37c] mb-2 opacity-50"></i><br>
+                        <span class="text-[10px] font-bold text-[#875c3b]">Эдийг<br>төлжүүлэх</span>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-right text-2xl text-[#b88c69] mx-1"></i>
+                <div class="method-circle text-center" style="border-color:#b88c69; background:#feeddf;">
+                    <div>
+                        <i class="fas fa-bullseye text-3xl text-[#a66f46] mb-2 opacity-70"></i><br>
+                        <span class="text-[10px] font-bold text-[#875c3b]">Үрэлтийн хүч<br>нэмэгдүүлэх</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed max-w-[320px] mx-auto mt-4 px-2">
+                Үтрээний салст бүрхэвчийн доорх эдэд хүний биед хоргүй коллаген зэрэг филлер тарих эсвэл тусгай имплант суулган товойлгох замаар үрэлтийн хүчийг дээд зэргээр нэмэгдүүлдэг зарчимтай.
+            </p>
+        </section>
+
+        <!-- Pink Grid Features -->
+        <section class="pink-features">
+            <h3 class="text-xl font-bold text-[#913b56] mb-1">LYDIA G-цэгийн мэс заслын онцлог</h3>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-[#d1708d]">Lydia G-Spot Surgery Feature</span>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper"><i class="fas fa-check"></i></div>
+                    <p class="text-[11px] font-bold text-[#80314a] leading-relaxed">
+                        Хувь хүний үтрээний агшилт, шалтгааныг оношилж, өөрт нь яг тохирох аргыг санал болгодог
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper"><i class="fas fa-check"></i></div>
+                    <p class="text-[11px] font-bold text-[#80314a] leading-relaxed">
+                        Эмэгтэй хүний нарийн мэдрэмжийг хүртэл сэргээхийн тулд
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper"><i class="fas fa-check"></i></div>
+                    <p class="text-[11px] font-bold text-[#80314a] leading-relaxed">
+                        Мэс заслаас айж эмээдэг хүмүүст зориулагдсан
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper"><i class="fas fa-check"></i></div>
+                    <p class="text-[11px] font-bold text-[#80314a] leading-relaxed">
+                        Хөнгөн хэсэгчилсэн мэдээ алдуулалтын дор хийгдэж хэвийн амьдралд шууд орох боломжтой
+                    </p>
+                </div>
+            </div>
+            <!-- fixing korean strays visually spotted ahead of time -->
+            <script>
+                // Will implement clean Mongolian pure text manually. 
+            </script>
+        </section>
+
+        <!-- Dark Brown Needs -->
+        <section class="needs-section">
+            <div class="text-center mb-8">
+                <h3 class="text-[20px] font-bold text-[#fdece0] mb-2 tracking-wide">G-цэгийн мэс засал шаардлагатай тохиолдол</h3>
+                <span class="text-[9px] tracking-[0.2em] text-[#d4ad8e] opacity-70 uppercase block">If you need G-Spot Surgery</span>
+            </div>
+
+            <div class="needs-pill-list flex flex-col gap-2">
+                <div class="needs-pill">
+                    <div class="needs-pill-num">01</div>
+                    <div class="pt-0.5 leading-snug">Бэлгийн харьцааны үед дур хүсэл нь буурдаг эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">02</div>
+                    <div class="pt-0.5 leading-snug">Дур тавьдаггүйгээс болж бэлгийн харьцаанд өөртөө итгэлгүй болсон эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">03</div>
+                    <div class="pt-0.5 leading-snug">Дур тавилтын дээд цэгийг нэг ч удаа мэдэрч үзээгүй эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">04</div>
+                    <div class="pt-0.5 leading-snug">Төрөлт болон насжилтаас шалтгаалан үтрээ суларч мэдрэмж буурсан эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">05</div>
+                    <div class="pt-0.5 leading-snug">Бэлгийн харьцааны үед их хэмжээний өвдөлт мэдэрдэг эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">06</div>
+                    <div class="pt-0.5 leading-snug">Үтрээний ялгадас багасаж, хуурайшсан эмэгтэйчүүд</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Universal Strengths (Brown Themed) -->
+        <section class="py-12 px-5 bg-[#faf8f6]">
+            <div class="text-center mb-10">
+                <i class="fas fa-certificate text-[#875c3b] mb-2 block text-2xl"></i>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA мэс заслын<br><span style="color:#5c4432;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн<br>мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-hand-holding-medical text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-shield-check text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-user-nurse text-[28px] text-[#bf9167] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

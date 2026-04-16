@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Үтрээний хэлбэр засах | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* Soft Lilac Hero */
+        .hero-lilac {
+            position: relative;
+            background: linear-gradient(135deg, #f0e6ff 0%, #e6d3fb 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-lilac::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+        }
+
+        /* Standard Intro */
+        .intro-wrap {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid #f3e8ff;
+        }
+
+        /* Advantages Grid Module (Lilac) */
+        .adv-section {
+            background: #fdfaf6;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .adv-graphic {
+            background: #fafafa;
+            border: 2px solid #e6d3fb;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .adv-graphic > div { text-align: center; flex: 1; }
+        .adv-circle {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: #f0e6ff;
+            margin: 0 auto 10px auto;
+            border: 2px solid #b28af4;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(178,138,244,0.2);
+        }
+        .adv-circle.after { border-color: #6b21a8; background: #e6d3fb; }
+        /* Add a crosshair/circle design logic for 'after' */
+        .adv-circle.after::after {
+            content: ''; position: absolute;
+            width: 40px; height: 40px;
+            border: 2px solid #6b21a8;
+            border-radius: 50%;
+        }
+
+        .adv-accent-box {
+            background: linear-gradient(to right, #9d6cd3, #8a4fc7);
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 25px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(138,79,199,0.3);
+        }
+        .adv-point {
+            background: white;
+            color: #6b21a8;
+            border-radius: 20px;
+            padding: 10px;
+            margin-top: 8px;
+            font-size: 11px; font-weight: 800;
+        }
+
+        /* Dark Brown Needs Section */
+        .needs-section {
+            background: linear-gradient(160deg, #382d22 0%, #1a140f 100%);
+            padding: 50px 20px;
+            color: #fff8f0;
+        }
+        .needs-pill {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+            border-radius: 30px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fde8d7;
+            text-align: left;
+        }
+        .needs-pill-num {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: #d4a373;
+            color: #2b2016;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: 800;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        /* Universal Strengths (Lilac adapted) */
+        .strength-card {
+            background: white;
+            border: 1px solid #f3e8ff;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #8a4fc7;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(138,79,199,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#8a4fc7] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Үтрээний хэлбэр засах</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Lilac Hero -->
+        <section class="hero-lilac">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#6b21a8] uppercase">Лазер үтрээний мэс засал</span>
+                
+                <h2 class="text-[28px] font-extrabold text-[#4c1d95] leading-tight mb-2">Үтрээний<br>хэлбэр засах</h2>
+                <div class="text-[14px] font-bold text-[#6b21a8] mb-4">(Хэлүүний мэс засал)</div>
+                
+                <div class="inline-block mt-1 mb-6 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#8a4fc7] bg-white shadow-sm">
+                    CLITORAL SURGERY
+                </div>
+                
+                <p class="text-[13px] text-[#4c1d95] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-[#d8b4fe] opacity-90">
+                    Илүүдэл арьсанд хучигдсан хэсгийг авч, эмэгтэйчүүдийн таашаалыг нэмэгдүүлэн, дур тавихгүй байх асуудлыг шийдэх лазер мэс засал.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-wrap">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-1">Clitoral Surgery</span>
+            <h3 class="text-xl font-bold text-[#4c1d95] mb-6">Лазер үтрээний хэлбэр засах</h3>
+            
+            <p class="text-[13px] font-medium text-gray-600 leading-loose text-left mb-4">
+                Хэлүү нь эмэгтэй хүний хөвчрөх эд бөгөөд эрэгтэй хүний бэлэг эрхтэнтэй ижил төстэй эрхтэн юм. Бэлгийн таашаал авахад хамгийн чухал үүрэг гүйцэтгэдэг хамгийн мэдрэмтгий хэсэг юм. 
+                <br><br>
+                Хэмжээ нь том биш бөгөөд ихэвчлэн илүүдэл арьсаар хучигдсан байдаг тул өөрөө ч анзаарахгүй байх тохиолдол их байдаг.
+            </p>
+            <p class="text-[13px] font-medium text-gray-800 leading-loose text-left bg-purple-50 p-4 border border-purple-100 rounded-xl">
+                Эмэгтэй хүний нөхөн үржихүйн эрхтний хамгийн мэдрэмтгий хэсгүүдийн нэг бөгөөд <strong class="text-[#8a4fc7]">илүүдэл арьсыг бага зэрэг авснаар</strong> мэдрэмтгий хэсэг ил гарч, бэлгийн харьцааны үед эмэгтэйн таашаал авах магадлал нэмэгдэж дур тавихгүй байх асуудлыг бүрэн шийдэх боломжтой!
+            </p>
+        </section>
+
+        <!-- Advantages Section -->
+        <section class="adv-section">
+            <div class="inline-flex items-center justify-center gap-2 mb-2">
+                <i class="fas fa-venus text-[#8a4fc7]"></i>
+                <h3 class="text-[19px] font-bold text-[#4c1d95]">Үтрээний хэлбэр засах давуу тал</h3>
+            </div>
+            
+            <!-- Visual Graphic -->
+            <div class="adv-graphic">
+                <div>
+                    <div class="adv-circle">
+                        <i class="fas fa-exclamation text-[#b28af4] opacity-50 text-xl"></i>
+                    </div>
+                    <span class="text-[12px] font-bold text-gray-500">Мэс заслын өмнө</span>
+                </div>
+                <i class="fas fa-caret-right text-3xl text-[#d8b4fe]"></i>
+                <div>
+                    <div class="adv-circle after">
+                        <i class="fas fa-hand-sparkles text-[#6b21a8] opacity-50"></i>
+                    </div>
+                    <span class="text-[12px] font-bold text-[#6b21a8]">Мэс заслын дараа</span>
+                </div>
+            </div>
+
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed max-w-[300px] mx-auto">
+                Лазер төхөөрөмж болон микро мэс заслын аргыг ашиглан хэлүүг хучсан илүүдэл арьсыг авч, бэлгийн өдөөлтөд илүү мэдрэмтгий болгож ил гаргаснаар дур тавилтад амархан хүрэх боломжийг олгодог.
+            </p>
+
+            <div class="adv-accent-box">
+                <div class="text-[12px] mb-3">Эмэгтэй хүн бүрийн биеийн онцлог, хэлбэр өөр өөр байдаг тул <strong>хувь хүний онцлогт тохируулан</strong> мэс засал хийгдэнэ.</div>
+                
+                <div class="adv-point"><i class="fas fa-check text-[#d8b4fe] mr-1"></i> Ил гаргаснаар бэлгийн дур хүсэл нэмэгдэнэ</div>
+                <div class="adv-point"><i class="fas fa-check text-[#d8b4fe] mr-1"></i> Ялгадас хуримтлагдахаас сэргийлж эрүүл ахуйд сайн</div>
+            </div>
+        </section>
+
+        <!-- Target Needs / Dark Brown Module -->
+        <section class="needs-section">
+            <div class="text-center mb-8">
+                <i class="fas fa-stethoscope text-[26px] text-[#d4a373] mb-3 opacity-90 block"></i>
+                <h3 class="text-[19px] font-bold text-[#fde8d7] mb-1">Үтрээний хэлбэр засах<br>шаардлагатай тохиолдол</h3>
+                <span class="text-[8px] tracking-[0.2em] text-[#d4a373] opacity-60 uppercase block pt-2">If you need clitoral molding</span>
+            </div>
+
+            <div class="needs-pill-list">
+                <div class="needs-pill">
+                    <div class="needs-pill-num">01</div>
+                    <div>Бэлгийн дур хүсэл сул эсвэл дур тавьдаггүй эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">02</div>
+                    <div>Өндөр нь намхан эсвэл далд орсон тул бэлгийн өдөөлт багатай эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">03</div>
+                    <div>Жижиг уруул эсвэл хэлүү нь хэт зузаан эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">04</div>
+                    <div>Илүүдэл арьс суларсан эсвэл тэгш бус хэм ихтэй эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">05</div>
+                    <div>Өнгө нь харласан эмэгтэйчүүд</div>
+                </div>
+                <div class="needs-pill">
+                    <div class="needs-pill-num">06</div>
+                    <div>Ялгадас болон хөлсний үнэрээс таагүй байдаг эмэгтэйчүүд</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Strengths / Difference -->
+        <section class="py-12 px-5 bg-white">
+            <div class="text-center mb-10">
+                <i class="fas fa-star text-[#8a4fc7] mb-2 block text-2xl"></i>
+                <h3 class="text-xl font-bold text-gray-900 leading-tight">LYDIA мэс заслын<br><span style="color:#6b21a8;">давуу тал!</span></h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн<br>нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-hand-holding-medical text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-shield-check text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-user-nurse text-[28px] text-[#b28af4] mb-3 mt-2 block"></i>
+                    <h4 class="text-[12px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

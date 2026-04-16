@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Батга эмчилгээ | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Clean Aqua/Blue Gradient for clear skin */
+        .hero-acne {
+            position: relative;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #bfdbfe 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-acne::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        /* Treatment Types: Mint/Blue */
+        .types-section {
+            background: linear-gradient(to bottom, #f0fdf4, #ecfeff);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #d1fae5;
+        }
+        .type-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 12px;
+            border: 1px solid rgba(167,243,208,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .type-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5,150,105,0.08);
+        }
+        .type-icon {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            color: #047857;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(4,120,87,0.12);
+        }
+
+        /* Target Audience: Dark Teal Section */
+        .target-section {
+            background: linear-gradient(160deg, #115e59 0%, #064e3b 100%);
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .target-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(4px);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #ecfeff;
+        }
+        .target-num {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            border: 1px solid #34d399;
+            display: flex; align-items: center; justify-content: center;
+            color: #6ee7b7;
+            font-size: 10px;
+            font-weight: 800;
+            flex-shrink: 0;
+            background: rgba(52,211,153,0.1);
+        }
+
+        /* Procedure Details: Fresh Blue */
+        .procedure-section {
+            background: #e0f2fe;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .procedure-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(186,230,253,0.3);
+            margin-bottom: 12px;
+        }
+        .procedure-label {
+            background: #bae6fd;
+            border-radius: 30px;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #0369a1;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Advantages (Clinic Standard Pink) */
+        .adv-section {
+            background: #fae2e8;
+            padding: 40px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #a93259;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(169,50,89,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c45070;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#0f766e] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Батга эмчилгээ</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-acne">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#0369a1] uppercase">Цэвэр, эрүүл арьсны шийдэл</span>
+                
+                <h2 class="text-[30px] font-extrabold text-[#0c4a6e] leading-tight mb-2">Батга<br><span class="text-[22px]">эмчилгээ</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#0284c7] bg-white shadow-sm border border-blue-200">
+                    ACNE TREATMENT
+                </div>
+                
+                <p class="text-[12px] text-[#075985] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-blue-200 opacity-80">
+                    Батганы шалтгааныг үндсээр нь эмчилж, үрэвсэл дарах, сорви бүдгэрүүлэх цогц үйлчилгээ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#047857] font-bold block mb-1">Clear Skin</span>
+            <h3 class="text-[22px] font-bold text-gray-900 mb-6 border-b-2 border-[#10b981] inline-block pb-1">Батга <span class="font-normal">гэж юу вэ?</span></h3>
+            
+            <p class="text-[13px] font-bold text-[#064e3b] leading-relaxed mb-3">
+                Арьсны нүх сүв тослог болон үхжмэл эсээр бөглөрч, нян үржсэнээр үрэвсэл үүсэхийг батга гэнэ.
+            </p>
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed mb-6">
+                Батга нь зөвхөн өсвөр насныханд төдийгүй насанд хүрэгчдэд ч стресс, гормоны өөрчлөлт, буруу хооллолт, нойргүйдэл зэрэг олон шалтгаанаас үүдэн гардаг. Буруу шахах, дуураймал бүтээгдэхүүн хэрэглэх нь сорви, нөсөө толбо үүсгэх эрсдэлтэй тул мэргэжлийн эмчийн зааварчилгаагаар эмчлэх нь хамгийн үр дүнтэй байдаг.
+            </p>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
+                <p class="text-[12px] font-bold text-[#0369a1] leading-relaxed">
+                    LYDIA эмнэлэг нь батганы үе шат, арьсны онцлогт тохирсон 1:1 ганцаарчилсан эмчилгээг санал болгож байна.
+                </p>
+            </div>
+        </section>
+
+        <!-- Treatment Types -->
+        <section class="types-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#059669] font-bold block mb-1">Types of Acne</span>
+            <h3 class="text-xl font-bold text-[#064e3b] mb-8">Батганы төрлүүд</h3>
+
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-dot-circle"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#065f46] mb-1">Цагаан батга (Битүү батга)</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Арьсны нүх бөглөрч, тослог гадагшилж чадаагүйгээс үүсдэг жижиг товгор. Үрэвсэл үүсэхээс өмнө цэвэрлэх хэрэгтэй.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-circle text-gray-800"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#065f46] mb-1">Хар батга</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Нүх сүв нээлттэй байж, тослог нь агаартай исэлдэн харлаж харагддаг. Гүн цэвэрлэгээ шаардлагатай.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-fire-alt text-red-500"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#065f46] mb-1">Үрэвсэлт батга (Идээт батга)</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Нянгийн халдварын улмаас улайж, хавдаж, идээлсэн батга. Сорви үлдээх эрсдэл өндөр тул болгоомжтой эмчлэх хэрэгтэй.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-disease text-purple-500"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#065f46] mb-1">Уйланхайт батга</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Арьсны гүнд үүсдэг, хатуу, том хэмжээтэй, өвдөлттэй батга. Эмийн болон лазер эмчилгээ хавсарч хийнэ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience (Dark Section) -->
+        <section class="target-section">
+            <div class="text-center mb-6 relative z-10">
+                <i class="fas fa-user-check text-[32px] text-[#6ee7b7] mb-3 opacity-90 block"></i>
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#34d399] font-bold block mb-1">For Whom</span>
+                <h3 class="text-[20px] font-bold text-white mb-3 leading-snug">Хэнд эмчилгээ<br>шаардлагатай вэ?</h3>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1 relative z-10">
+                <div class="target-item">
+                    <div class="target-num"><i class="fas fa-check"></i></div>
+                    <div>Батга байнга дахиж гардаг хүмүүс</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num"><i class="fas fa-check"></i></div>
+                    <div>Батганы сорви, нөсөө толбо үлдсэн хүмүүс</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num"><i class="fas fa-check"></i></div>
+                    <div>Арьсны тослог ихтэй, нүхжилт томтой хүмүүс</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num"><i class="fas fa-check"></i></div>
+                    <div>Насанд хүрэгчдийн батгаар шаналж буй хүмүүс</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num"><i class="fas fa-check"></i></div>
+                    <div>Эмзэг, үрэвсэлт арьстай хүмүүс</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Procedure Details -->
+        <section class="procedure-section">
+            <div class="inline-flex flex-col items-center mb-6">
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#0284c7] font-bold block mb-1">Procedure Details</span>
+                <h3 class="text-[20px] font-extrabold text-[#082f49] leading-tight">Эмчилгээний үе шат</h3>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">1. Оношлогоо</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Арьсны байдал, батганы үүссэн шалтгааныг тодорхойлж, эмчилгээний төлөвлөгөө гаргана.
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">2. Гүн цэвэрлэгээ</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Үхжмэл эс болон нүх сүвэн дэх бохирдлыг цэвэрлэж, тослогийн хэмжээг тэнцвэржүүлнэ (Скейлинг).
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">3. Батга шахах & Үрэвсэл дарах</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Ариутгасан багажаар зөв шахах, үрэвслийн эсрэг тарилга хийх.
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">4. Лазер & Гэрлэн эмчилгээ</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Нян устгах, үрэвсэл дарах лазер болон гэрлэн эмчилгээ хийнэ.
+                </p>
+            </div>
+
+            <div class="procedure-card mb-0">
+                <div class="procedure-label">5. Тайвшруулах арчилгаа</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Арьсыг тайвшруулах маск, өндөр чийгшүүлэгч хэрэглэн арьсны хамгаалах давхаргыг сэргээнэ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Advantages (Clinic Standard) -->
+        <section class="adv-section">
+            <div class="text-center mb-8">
+                <i class="fas fa-star text-[#c45070] mb-2 block text-xl"></i>
+                <h3 class="text-xl font-bold text-[#701a75] leading-tight">LYDIA эмнэлгийн<br>давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Мэргэжлийн<br>эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>

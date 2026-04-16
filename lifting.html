@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өргөх (лифтинг) | LYDIA CLINIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { -webkit-font-smoothing: antialiased; font-family: 'Gilroy', 'Montserrat', sans-serif !important; background-color: #fbfbfe; }
+        .mobile-container { max-width: 480px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* Hero: Elegant Rose Gold Gradient */
+        .hero-lifting {
+            position: relative;
+            background: linear-gradient(135deg, #fdf0f2 0%, #f5e1e6 50%, #edd5dc 100%);
+            padding: 50px 20px 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-lifting::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            mix-blend-mode: multiply;
+        }
+        .hero-lifting::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; right: -30px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,80,112,0.15) 0%, transparent 70%);
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        /* Treatment Types: Warm Gradient */
+        .types-section {
+            background: linear-gradient(to bottom, #fdf4f6, #f9e6eb);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #fce7f3;
+        }
+        .type-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 12px;
+            border: 1px solid rgba(249,223,228,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .type-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(100,23,53,0.08);
+        }
+        .type-icon {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f9dfe4, #f5ccd5);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            color: #a93259;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(169,50,89,0.12);
+        }
+
+        /* Target Audience: Dark Section */
+        .target-section {
+            background: linear-gradient(160deg, #3d0e1f 0%, #2a0816 100%);
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .target-section::after {
+            content: '';
+            position: absolute;
+            top: 60px; right: -40px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,80,112,0.25) 0%, transparent 70%);
+        }
+        .target-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(4px);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fce7f3;
+        }
+        .target-num {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            border: 1px solid #c45070;
+            display: flex; align-items: center; justify-content: center;
+            color: #f472b6;
+            font-size: 10px;
+            font-weight: 800;
+            flex-shrink: 0;
+            background: rgba(196,80,112,0.1);
+        }
+
+        /* Procedure Details: Peach/Salmon */
+        .procedure-section {
+            background: #fcd5ce;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .procedure-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(224,142,121,0.15);
+            margin-bottom: 12px;
+        }
+        .procedure-label {
+            background: #fae2e8;
+            border-radius: 30px;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #9f1239;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Effects Comparison */
+        .effects-section {
+            background: linear-gradient(135deg, #fdf0f2 0%, #fff 100%);
+            padding: 40px 20px;
+        }
+        .effect-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .effect-icon {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f9dfe4, #f5ccd5);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+            color: #a93259;
+            flex-shrink: 0;
+        }
+
+        /* Advantages */
+        .adv-section {
+            background: #fae2e8;
+            padding: 40px 20px;
+        }
+        .strength-card {
+            background: white;
+            border: 1px solid #f9dfe4;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .strength-num {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: #a93259;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(169,50,89,0.3);
+        }
+        .strength-icon {
+            font-size: 28px;
+            color: #c45070;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        /* Before/After Note */
+        .note-section {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .note-card {
+            background: linear-gradient(135deg, #fdf0f2, #fae2e8);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #f9dfe4;
+        }
+        .note-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .note-item:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container relative pb-0">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center p-5 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+            <a href="index.html" class="text-gray-500 hover:text-[#641735] text-xl transition flex items-center justify-center w-10 h-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h1 class="text-lg font-bold tracking-tight text-gray-800">Өргөх (лифтинг)</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-lifting">
+            <div class="relative z-10">
+                <span class="text-[11px] font-bold tracking-widest block mb-2 text-[#a93259] uppercase">Залуу, уян хатан арьсыг сэргээх</span>
+                
+                <h2 class="text-[30px] font-extrabold text-[#3d0e1f] leading-tight mb-2">Өргөх<br><span class="text-[22px]">(лифтинг)</span></h2>
+                
+                <div class="inline-block mt-2 mb-5 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest text-[#a93259] bg-white shadow-sm border border-pink-200">
+                    FACE LIFTING
+                </div>
+                
+                <p class="text-[12px] text-[#641735] font-bold leading-relaxed max-w-[280px] mx-auto pt-4 border-t border-pink-200 opacity-80">
+                    Утас лифтинг, HIFU, лазер зэрэг дэвшилтэт технологийг ашиглан арьсыг чангалж, царай залуужуулах мэс засалгүй эмчилгээ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#a93259] font-bold block mb-1">Face Lifting</span>
+            <h3 class="text-[22px] font-bold text-gray-900 mb-6 border-b-2 border-[#c45070] inline-block pb-1">Өргөх (лифтинг) <span class="font-normal">гэж юу вэ?</span></h3>
+            
+            <p class="text-[13px] font-bold text-[#3d0e1f] leading-relaxed mb-3">
+                Лифтинг гэдэг нь наснаас болж унжиж, сулрах арьсыг сэргээж, чангалж өргөх процедур юм.
+            </p>
+            <p class="text-[12px] font-medium text-gray-600 leading-relaxed mb-6">
+                Насны хувьд 20 наснаас хойш жил бүр коллаген, эластины үйлдвэрлэл буурч, арьсны уян хатан байдал алдагдаж эхэлдэг. 30-40 насны дараа нүүрний контур эвдэрч, хацар унжих, хүнхрэх, хүзүүний үрчлээ гарах зэрэг өөрчлөлт илэрдэг.
+                <br><br>
+                Лифтинг нь зүсэлтгүй, мэс засалгүй аргаар арьсан доторх коллаген үүсэлтийг идэвхжүүлж, нүүрний контурыг тодруулж, залуу харагдуулах боломжийг олгодог.
+            </p>
+
+            <div class="bg-pink-50 border border-pink-100 rounded-xl p-4 text-center">
+                <p class="text-[12px] font-bold text-[#a93259] leading-relaxed">
+                    Арьсны төрөл, нас, сулралын зэрэглэлээс хамаарч хамгийн тохирох лифтингийн аргыг сонгож, хувь хүнд тохирсон эмчилгээний төлөвлөгөө боловсруулдаг.
+                </p>
+            </div>
+        </section>
+
+        <!-- Treatment Types -->
+        <section class="types-section">
+            <span class="text-[9px] tracking-[0.2em] uppercase text-[#be185d] font-bold block mb-1">Types of Lifting</span>
+            <h3 class="text-xl font-bold text-[#831843] mb-8">Лифтингийн төрлүүд</h3>
+
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-link"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-1">Утас лифтинг (Thread Lifting)</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Биед задардаг нарийн утсыг арьсан дор оруулж, арьсыг физикийн ёсоор өргөж чангалдаг. Коллаген үүсэлтийг идэвхжүүлж, удаан хугацааны үр дүнтэй.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-wave-square"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-1">HIFU (Өндөр интенсивтэй ультра дуу)</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Фокуслагдсан хэт авианы долгионоор арьсны SMAS давхрагад хүрч, гүн давхаргаас чангалдаг. Зүсэлгүй, мэс засалгүй нүүр чангалах эмчилгээ.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-1">Лазер лифтинг</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Лазер хурдатгуураар арьсны гүн давхарт нөлөөлж коллаген болон эластины нийлэгжилтийг идэвхжүүлж, арьсны уян хатан байдлыг сэргээдэг.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-syringe"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-1">PRP / Мезотерапи лифтинг</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Өөрийн цусны ялтснаас ялган авсан өсөлтийн хүчин зүйлс эсвэл тусгай хольцыг арьсанд тарьж, эсийн шинэчлэлийг хурдасгаж, арьсыг дотроос нь сэргээдэг.</p>
+                </div>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon"><i class="fas fa-magnet"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-1">RF (Радио давтамжийн) лифтинг</h4>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Радио давтамжийн энергийг ашиглан арьсны коллагеныг халааж агшаан шинэ коллагеныг үүсгэснээр арьсыг чангалдаг.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience (Dark Section) -->
+        <section class="target-section">
+            <div class="text-center mb-6 relative z-10">
+                <i class="fas fa-hand-sparkles text-[32px] text-pink-300 mb-3 opacity-90 block"></i>
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#f472b6] font-bold block mb-1">Who Needs Lifting</span>
+                <h3 class="text-[20px] font-bold text-white mb-3 leading-snug">Лифтинг<br>хэнд хэрэгтэй вэ?</h3>
+                <p class="text-[11px] font-medium text-pink-200 leading-relaxed opacity-80 px-2 mt-4 inline-block bg-white/10 rounded-lg p-2 border border-white/20">
+                    ※ Доорх <strong>шинж тэмдгүүд</strong> илэрч байвал лифтинг эмчилгээ хийлгэх цаг болсон гэсэн үг.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1 relative z-10">
+                <div class="target-item">
+                    <div class="target-num">1</div>
+                    <div>Нүүрний контур тодорхойгүй болж, хацар доош унжиж байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">2</div>
+                    <div>Хамраас амны хажуу тийшхи атираа (нүдний доор) гүнзгийрч байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">3</div>
+                    <div>Нүдний доорх хөнгөн хавант байдал буурахгүй байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">4</div>
+                    <div>Эрүү, хүзүүний арьс сулрах шинж тэмдэг илэрч байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">5</div>
+                    <div>Мэс засалгүйгээр залуу харагдахыг хүсч байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">6</div>
+                    <div>Арьсны уян хатан байдал буурч, нүүр ядарч харагдаж байвал</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-num">7</div>
+                    <div>Духны үрчлээ, нүдний хажуугийн үрчлээ гарч эхэлж байвал</div>
+                </div>
+                <div class="target-item mb-0">
+                    <div class="target-num">8</div>
+                    <div>Өмнө нь лифтинг хийлгэсэн ч засвартай болсон бол</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Procedure Details (Peach/Salmon) -->
+        <section class="procedure-section">
+            <div class="inline-flex flex-col items-center mb-6">
+                <span class="text-[9px] tracking-[0.2em] uppercase text-[#9f1239] font-bold block mb-1">Procedure Details</span>
+                <h3 class="text-[20px] font-extrabold text-[#7c2d12] leading-tight">Эмчилгээний явц</h3>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">1-р алхам: Зөвлөгөө</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Арьсны төрөл, сулралын зэрэг, хүссэн үр дүн зэргийг тодорхойлж, хамгийн тохирох лифтингийн аргыг сонгоно.
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">2-р алхам: Дизайн</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Өргөх хэсгүүдийг тодорхойлж, нүүрний тэгш хэм, контурыг харгалзан дүрс зурж төлөвлөнө.
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">3-р алхам: Мэдээ алдуулалт</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Эмчилгээний хэсэгт мэдээ алдуулах тос эсвэл орон нутгийн мэдээ алдуулалт хэрэглэж, өвдөлтгүй болгоно.
+                </p>
+            </div>
+
+            <div class="procedure-card">
+                <div class="procedure-label">4-р алхам: Эмчилгээ</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Сонгосон лифтингийн аргаар эмчилгээг гүйцэтгэнэ. Ихэнх эмчилгээ нь 30-60 минутын хооронд хийгддэг.
+                </p>
+            </div>
+
+            <div class="procedure-card mb-0">
+                <div class="procedure-label">5-р алхам: Дараах арчилгаа</div>
+                <p class="text-[12px] text-gray-700 font-medium leading-relaxed">
+                    Эмчилгээний дараа арьсанд тохирох маск, тайвшруулах тос хэрэглэж, нүүрний будаг хэрэглэхгүй байхыг зөвлөнө.
+                </p>
+            </div>
+        </section>
+
+        <!-- Effects Section -->
+        <section class="effects-section">
+            <div class="text-center mb-6">
+                <i class="fas fa-sparkles text-[#c45070] text-xl mb-2 block"></i>
+                <h3 class="text-xl font-bold text-[#3d0e1f]">Лифтингийн <span class="text-[#a93259]">үр дүн</span></h3>
+            </div>
+
+            <div class="effect-row">
+                <div class="effect-icon"><i class="fas fa-arrows-alt-v"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-0.5">Чангарсан, тэсвэрхийн арьс</h4>
+                    <p class="text-[11px] text-gray-500">Арьс тод өнгөтэй, тэсвэрхийн, уян хатан болно</p>
+                </div>
+            </div>
+
+            <div class="effect-row">
+                <div class="effect-icon"><i class="fas fa-crown"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-0.5">V-хэлбэрийн нүүрний контур</h4>
+                    <p class="text-[11px] text-gray-500">Нүүр жижигрэх, V-хэлбэрийн тод контур</p>
+                </div>
+            </div>
+
+            <div class="effect-row">
+                <div class="effect-icon"><i class="fas fa-magic"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-0.5">Үрчлээ арилгах</h4>
+                    <p class="text-[11px] text-gray-500">Нарийн болон гүн үрчлээг арилгах</p>
+                </div>
+            </div>
+
+            <div class="effect-row">
+                <div class="effect-icon"><i class="fas fa-sun"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-0.5">Арьсны өнгө гэрэлтүүлэх</h4>
+                    <p class="text-[11px] text-gray-500">Арьсны өнгийг тод, гэрэлтэй болгодог</p>
+                </div>
+            </div>
+
+            <div class="effect-row">
+                <div class="effect-icon"><i class="fas fa-hourglass-half"></i></div>
+                <div>
+                    <h4 class="text-[13px] font-bold text-[#3d0e1f] mb-0.5">Коллаген сэргээлт</h4>
+                    <p class="text-[11px] text-gray-500">Цаг хугацаа өнгөрөх тусам коллаген нэмэгдэж үр дүн илэрнэ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post-Care Notes -->
+        <section class="note-section">
+            <div class="text-center mb-6">
+                <i class="fas fa-clipboard-list text-[#c45070] text-xl mb-2 block"></i>
+                <h3 class="text-xl font-bold text-[#3d0e1f]">Эмчилгээний дараах <span class="text-[#a93259]">анхаарах зүйлс</span></h3>
+            </div>
+
+            <div class="note-card">
+                <div class="note-item">
+                    <i class="fas fa-check-circle text-[#c45070] mt-0.5 flex-shrink-0"></i>
+                    <p class="text-[12px] text-gray-700 font-medium leading-relaxed">Эмчилгээний дараа 1-2 өдөрт хөнгөн хаван, улайлт илэрч болно — энэ нь хэвийн.</p>
+                </div>
+                <div class="note-item">
+                    <i class="fas fa-check-circle text-[#c45070] mt-0.5 flex-shrink-0"></i>
+                    <p class="text-[12px] text-gray-700 font-medium leading-relaxed">7 хоногийн дотор сауна, хэт халуун ус, хүнд дасгал хийхээс зайлсхийнэ.</p>
+                </div>
+                <div class="note-item">
+                    <i class="fas fa-check-circle text-[#c45070] mt-0.5 flex-shrink-0"></i>
+                    <p class="text-[12px] text-gray-700 font-medium leading-relaxed">Нарнаас хамгаалах тос заавал хэрэглэж, арьсыг чийгтэй байлгана.</p>
+                </div>
+                <div class="note-item">
+                    <i class="fas fa-check-circle text-[#c45070] mt-0.5 flex-shrink-0"></i>
+                    <p class="text-[12px] text-gray-700 font-medium leading-relaxed">Нүүрний массаж, хүчтэй хоолой засалт хийхээс 2-4 долоо хоног зайлсхийнэ.</p>
+                </div>
+                <div class="note-item">
+                    <i class="fas fa-check-circle text-[#c45070] mt-0.5 flex-shrink-0"></i>
+                    <p class="text-[12px] text-gray-700 font-medium leading-relaxed">Бүрэн үр дүн 2-4 долоо хоногийн дараа илэрнэ. Тэвчээртэй байх нь чухал.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages -->
+        <section class="adv-section">
+            <div class="text-center mb-8">
+                <i class="fas fa-star text-[#c45070] mb-2 block text-xl"></i>
+                <h3 class="text-xl font-bold text-[#701a75] leading-tight">LYDIA лифтингийн<br>давуу тал!</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="strength-card">
+                    <div class="strength-num">01</div>
+                    <i class="fas fa-user-md strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Эмэгтэйчүүдийн нарийн мэргэжлийн эмч</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">02</div>
+                    <i class="fas fa-shield-heart strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Аюулгүй байдлыг<br>эрхэмлэдэг</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">03</div>
+                    <i class="fas fa-comments-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">1:1 ганцаарчилсан<br>эмчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">04</div>
+                    <i class="fas fa-notes-medical strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Нарийвчилсан хяналт,<br>үйлчилгээ</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">05</div>
+                    <i class="fas fa-award strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">LYDIA-ийн<br>өвөрмөц ноу-хау</h4>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-num">06</div>
+                    <i class="fas fa-thumbs-up strength-icon"></i>
+                    <h4 class="text-[13px] font-bold text-gray-800 leading-snug">Хамгийн өндөр<br>сэтгэл ханамж</h4>
+                </div>
+            </div>
+        </section>
+
+                <!-- Footer -->
+        <footer class="bg-[#2d0a16] text-white px-5 py-10">
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-2" style="background:linear-gradient(135deg,#641735,#8c2444);">L</div>
+                <h3 class="text-lg font-bold tracking-wide">LYDIA CLINIC</h3>
+                <p class="text-[11px] text-gray-400 mt-1">Эмэгтэйчүүдийн нарийн мэргэжлийн эмнэлэг</p>
+            </div>
+            <div class="space-y-3 text-[12px] text-gray-300">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt mt-0.5 text-[#c45070]"></i>
+                    <span>서울시 강남구 강남대로 432</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-phone mt-0.5 text-[#c45070]"></i>
+                    <div>
+                        <span class="block">Монголоос: 72107203</span>
+                        <span class="block">Солонгост: 010-9897-7684</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fab fa-facebook mt-0.5 text-[#c45070]"></i>
+                    <a href="https://www.facebook.com/LYDIAWomensClinic/" target="_blank" class="underline hover:text-white transition">Facebook: LYDIA Women's Clinic</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-6 pt-4 text-center text-[10px] text-gray-500">
+                © 2026 LYDIA CLINIC. All Rights Reserved.
+            </div>
+        </footer>
+
+
+        <!-- Floating Contact FAB -->
+        <div class="fab-container" id="fabContainer">
+            <div class="fab-options" id="fabOptions">
+                <a href="tel:72107203" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#641735;"></i>
+                    <span>Монгол дугаар луу залгах</span>
+                </a>
+                <a href="tel:01098977684" class="fab-option" style="background:white;border:1px solid #f0f0f0;">
+                    <i class="fas fa-phone" style="color:#3b82f6;"></i>
+                    <span>Солонгос дугаар луу залгах</span>
+                </a>
+            </div>
+            <button class="fab-btn" id="fabBtn" onclick="toggleFab()">
+                <i class="fas fa-headset fab-icon-open"></i>
+                <i class="fas fa-times fab-icon-close" style="display:none;"></i>
+                <span class="fab-label">Холбогдох</span>
+            </button>
+        </div>
+
+        <style>
+        .fab-container{position:fixed;bottom:20px;right:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+        .fab-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#641735,#8c2444);color:white;border:none;padding:12px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(100,23,53,0.4);transition:all 0.3s;font-family:inherit;}
+        .fab-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(100,23,53,0.5);}
+        .fab-options{display:none;flex-direction:column;gap:8px;align-items:flex-end;}
+        .fab-options.active{display:flex;animation:fabSlideUp 0.3s ease;}
+        .fab-option{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;text-decoration:none;color:#1f2937;font-size:12.5px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.2s;white-space:nowrap;font-family:inherit;}
+        .fab-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+        .fab-option i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fdf0f2;flex-shrink:0;}
+        @keyframes fabSlideUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        </style>
+        <script>
+        function toggleFab(){var o=document.getElementById('fabOptions'),b=document.getElementById('fabBtn'),io=b.querySelector('.fab-icon-open'),ic=b.querySelector('.fab-icon-close'),lb=b.querySelector('.fab-label');if(o.classList.contains('active')){o.classList.remove('active');io.style.display='';ic.style.display='none';lb.textContent='Холбогдох';}else{o.classList.add('active');io.style.display='none';ic.style.display='';lb.textContent='Хаах';}}
+        </script>
+</body>
+</html>
