@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://lydia-fgi.pages.dev/sitemap.xml
+Sitemap: https://lydia-clinic.com/sitemap.xml
