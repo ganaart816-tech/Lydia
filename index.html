@@ -340,173 +340,6 @@
         });
         </script>
 
-        <!-- User Reviews Section -->
-        <section class="py-6 bg-white overflow-hidden" id="reviewsSection">
-            <div class="px-5 mb-4">
-                <span class="text-xs font-bold uppercase tracking-wider" style="color:#641735;">Сэтгэгдэл</span>
-                <h3 class="text-xl font-bold text-gray-900 mt-1">Үйлчлүүлэгчдийн үнэлгээ</h3>
-            </div>
-            
-            <style>
-                .reviews-track-wrapper {
-                    width: 100%;
-                    overflow: hidden;
-                    position: relative;
-                }
-                .reviews-track-wrapper::before, .reviews-track-wrapper::after {
-                    content: '';
-                    position: absolute;
-                    top: 0; bottom: 0; width: 30px;
-                    z-index: 2;
-                }
-                .reviews-track-wrapper::before { left: 0; background: linear-gradient(to right, #ffffff, transparent); }
-                .reviews-track-wrapper::after { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
-                
-                .reviews-track {
-                    display: flex;
-                    gap: 16px;
-                    padding: 10px 20px;
-                    width: max-content;
-                    animation: slideReviews 25s linear infinite;
-                }
-                .reviews-track:hover {
-                    animation-play-state: paused;
-                }
-                @keyframes slideReviews {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-                
-                .review-card {
-                    background: #fdf0f2;
-                    border-radius: 16px;
-                    padding: 16px;
-                    width: 260px;
-                    flex-shrink: 0;
-                    box-shadow: 0 4px 15px rgba(100,23,53,0.05);
-                    border: 1px solid #f9dfe4;
-                }
-                .review-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    margin-bottom: 10px;
-                }
-                .review-avatar {
-                    width: 36px; height: 36px;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, #641735, #8c2444);
-                    color: white;
-                    display: flex; align-items: center; justify-content: center;
-                    font-weight: 700; font-size: 14px;
-                }
-                .review-stars {
-                    color: #fbbf24;
-                    font-size: 11px;
-                }
-                .review-name {
-                    font-size: 13px; font-weight: 700; color: #3d0e1f;
-                }
-                .review-text {
-                    font-size: 12.5px;
-                    color: #4b5563;
-                    line-height: 1.5;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                }
-            </style>
-            
-            <div class="reviews-track-wrapper">
-                <div class="reviews-track">
-                    <!-- original set -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">А</div>
-                            <div>
-                                <div class="review-name">Анударь</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Эмч нар маш эелдэг, мэргэжлийн өндөр түвшинд үйлчиллээ. Үр дүн нь гайхалтай байсан, баярлалаа!</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">Б</div>
-                            <div>
-                                <div class="review-name">Болороо</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Эмнэлгийн орчин маш цэвэрхэн, тав тухтай. Солонгос эмч нарын ур чадвар үнэхээр сайн юм байна.</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">С</div>
-                            <div>
-                                <div class="review-name">Сарнай</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Мэс заслын дараах сэргэлт хурдан байсан бөгөөд үр дүндээ 100% сэтгэл хангалуун байна. Зөвлөж байна!</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">О</div>
-                            <div>
-                                <div class="review-name">Отгоо</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Үйлчилгээ болон харилцаа үнэхээр сайн. Өөртөө итгэх итгэл маань нэмэгдсэн. LYDIA эмнэлэгт гүнээ талархъя.</p>
-                    </div>
-                    
-                    <!-- duplicated set for smooth scroll -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">А</div>
-                            <div>
-                                <div class="review-name">Анударь</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Эмч нар маш эелдэг, мэргэжлийн өндөр түвшинд үйлчиллээ. Үр дүн нь гайхалтай байсан, баярлалаа!</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">Б</div>
-                            <div>
-                                <div class="review-name">Болороо</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Эмнэлгийн орчин маш цэвэрхэн, тав тухтай. Солонгос эмч нарын ур чадвар үнэхээр сайн юм байна.</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">С</div>
-                            <div>
-                                <div class="review-name">Сарнай</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Мэс заслын дараах сэргэлт хурдан байсан бөгөөд үр дүндээ 100% сэтгэл хангалуун байна. Зөвлөж байна!</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-avatar">О</div>
-                            <div>
-                                <div class="review-name">Отгоо</div>
-                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <p class="review-text">Үйлчилгээ болон харилцаа үнэхээр сайн. Өөртөө итгэх итгэл маань нэмэгдсэн. LYDIA эмнэлэгт гүнээ талархъя.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="py-6">
             <div class="px-5 mb-5">
                 <span class="text-xs font-bold uppercase tracking-wider" style="color:#641735;">Үйлчилгээ</span>
@@ -763,6 +596,173 @@
                 });
             });
             </script>
+        </section>
+
+        <!-- User Reviews Section -->
+        <section class="py-6 bg-white overflow-hidden" id="reviewsSection">
+            <div class="px-5 mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider" style="color:#641735;">Сэтгэгдэл</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Үйлчлүүлэгчдийн үнэлгээ</h3>
+            </div>
+            
+            <style>
+                .reviews-track-wrapper {
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+                }
+                .reviews-track-wrapper::before, .reviews-track-wrapper::after {
+                    content: '';
+                    position: absolute;
+                    top: 0; bottom: 0; width: 30px;
+                    z-index: 2;
+                }
+                .reviews-track-wrapper::before { left: 0; background: linear-gradient(to right, #ffffff, transparent); }
+                .reviews-track-wrapper::after { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
+                
+                .reviews-track {
+                    display: flex;
+                    gap: 16px;
+                    padding: 10px 20px;
+                    width: max-content;
+                    animation: slideReviews 25s linear infinite;
+                }
+                .reviews-track:hover {
+                    animation-play-state: paused;
+                }
+                @keyframes slideReviews {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                
+                .review-card {
+                    background: #fdf0f2;
+                    border-radius: 16px;
+                    padding: 16px;
+                    width: 260px;
+                    flex-shrink: 0;
+                    box-shadow: 0 4px 15px rgba(100,23,53,0.05);
+                    border: 1px solid #f9dfe4;
+                }
+                .review-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 10px;
+                }
+                .review-avatar {
+                    width: 36px; height: 36px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #641735, #8c2444);
+                    color: white;
+                    display: flex; align-items: center; justify-content: center;
+                    font-weight: 700; font-size: 14px;
+                }
+                .review-stars {
+                    color: #fbbf24;
+                    font-size: 11px;
+                }
+                .review-name {
+                    font-size: 13px; font-weight: 700; color: #3d0e1f;
+                }
+                .review-text {
+                    font-size: 12.5px;
+                    color: #4b5563;
+                    line-height: 1.5;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            </style>
+            
+            <div class="reviews-track-wrapper">
+                <div class="reviews-track">
+                    <!-- original set -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">А</div>
+                            <div>
+                                <div class="review-name">Анударь</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Эмч нар маш эелдэг, мэргэжлийн өндөр түвшинд үйлчиллээ. Үр дүн нь гайхалтай байсан, баярлалаа!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">Б</div>
+                            <div>
+                                <div class="review-name">Болороо</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Эмнэлгийн орчин маш цэвэрхэн, тав тухтай. Солонгос эмч нарын ур чадвар үнэхээр сайн юм байна.</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">С</div>
+                            <div>
+                                <div class="review-name">Сарнай</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Мэс заслын дараах сэргэлт хурдан байсан бөгөөд үр дүндээ 100% сэтгэл хангалуун байна. Зөвлөж байна!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">О</div>
+                            <div>
+                                <div class="review-name">Отгоо</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Үйлчилгээ болон харилцаа үнэхээр сайн. Өөртөө итгэх итгэл маань 거мэгдсэн. LYDIA эмнэлэгт гүнээ талархъя.</p>
+                    </div>
+                    
+                    <!-- duplicated set for smooth scroll -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">А</div>
+                            <div>
+                                <div class="review-name">Анударь</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Эмч нар маш эелдэг, мэргэжлийн өндөр түвшинд үйлчиллээ. Үр дүн нь гайхалтай байсан, баярлалаа!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">Б</div>
+                            <div>
+                                <div class="review-name">Болороо</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Эмнэлгийн орчин маш цэвэрхэн, тав тухтай. Солонгос эмч нарын ур чадвар үнэхээр сайн юм байна.</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">С</div>
+                            <div>
+                                <div class="review-name">Сарнай</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Мэс заслын дараах сэргэлт хурдан байсан бөгөөд үр дүндээ 100% сэтгэл хангалуун байна. Зөвлөж байна!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">О</div>
+                            <div>
+                                <div class="review-name">Отгоо</div>
+                                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="review-text">Үйлчилгээ болон харилцаа үнэхээр сайн. Өөртөө итгэх итгэл маань нэмэгдсэн. LYDIA эмнэлэгт гүнээ талархъя.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
                 <!-- Footer -->
